@@ -11,7 +11,7 @@ import discord
 from discord.ext import commands
 from dotenv import load_dotenv
 
-load_dotenv()
+load_dotenv(override=True)
 
 class SalonSetupBot(commands.Bot):
     def __init__(self):

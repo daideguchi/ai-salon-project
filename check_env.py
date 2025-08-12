@@ -8,7 +8,7 @@ def check_environment():
     """環境変数の設定状況を確認"""
     
     print("🔍 環境変数設定確認...")
-    load_dotenv()
+    load_dotenv(override=True)
     
     # Discord Token確認
     token = os.getenv('DISCORD_TOKEN')

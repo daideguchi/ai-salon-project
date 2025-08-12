@@ -9,8 +9,8 @@ import asyncio
 import discord
 from dotenv import load_dotenv
 
-# 環境変数読み込み
-load_dotenv()
+# 環境変数読み込み (ローカル.envを強制優先)
+load_dotenv(override=True)
 
 async def test_discord_connection():
     """Discord Botの接続テスト"""
