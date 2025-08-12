@@ -1,0 +1,59 @@
+# Discord関連
+discord.py>=2.3.0
+discord-ext-menus>=1.0.0
+
+# 環境変数・設定
+python-dotenv>=1.0.0
+
+# AI API関連
+openai>=1.0.0
+google-generativeai>=0.3.0
+
+# Web関連
+fastapi>=0.100.0
+uvicorn>=0.23.0
+requests>=2.31.0
+aiohttp>=3.8.0
+
+# データベース
+sqlalchemy>=2.0.0
+alembic>=1.12.0
+sqlite3
+
+# 日時・ユーティリティ
+python-dateutil>=2.8.0
+pytz>=2023.3
+
+# ログ・監視
+loguru>=0.7.0
+
+# YouTube API
+google-api-python-client>=2.100.0
+google-auth-httplib2>=0.1.0
+google-auth-oauthlib>=1.0.0
+
+# テキスト処理
+markdown>=3.5.0
+beautifulsoup4>=4.12.0
+
+# 非同期処理
+asyncio
+aiofiles>=23.0.0
+
+# スケジューリング
+schedule>=1.2.0
+APScheduler>=3.10.0
+
+# セキュリティ
+cryptography>=41.0.0
+python-jose>=3.3.0
+
+# CSV・データ処理
+pandas>=2.0.0
+openpyxl>=3.1.0
+
+# 画像処理（将来のアイコン生成用）
+Pillow>=10.0.0
+
+# HTTP クライアント
+httpx>=0.24.0
