@@ -3,7 +3,7 @@
 import { useState, useEffect } from 'react'
 import { motion, useAnimation, useInView } from 'framer-motion'
 import { useRef } from 'react'
-import { supabase, type Pack } from '@/lib/supabase'
+import { supabase, type LeadMagnet } from '@/lib/supabase'
 import { Button } from '@/components/ui/button'
 import { Calendar, Download, Users, TrendingUp, Brain, Target, Lightbulb, ChevronRight, Gift, Star, Zap, Newspaper, BookOpen, ExternalLink, Clock, ArrowRight, MessageCircle, Video, PenTool, DollarSign, CheckCircle, Award, Shield, Heart, Sparkles, Rocket } from 'lucide-react'
 
@@ -104,7 +104,7 @@ const FeatureCard: React.FC<{
   )
 }
 
-const PackCard: React.FC<{ pack: Pack; index: number }> = ({ pack, index }) => {
+const LeadMagnetCard: React.FC<{ leadMagnet: LeadMagnet; index: number }> = ({ leadMagnet, index }) => {
   const ref = useRef<HTMLDivElement>(null)
   const isInView = useInView(ref, { once: true, margin: "-50px" })
 
@@ -133,7 +133,7 @@ const PackCard: React.FC<{ pack: Pack; index: number }> = ({ pack, index }) => {
             <Gift className="h-4 w-4" />
             特典パック
           </div>
-          {pack.is_premium && (
+          {leadMagnet.is_premium && (
             <div className="inline-flex items-center gap-1 rounded-full bg-gradient-to-r from-yellow-400 to-orange-400 px-2 py-1 text-xs font-bold text-white shadow-lg">
               <Star className="h-3 w-3" />
               Premium
@@ -142,23 +142,23 @@ const PackCard: React.FC<{ pack: Pack; index: number }> = ({ pack, index }) => {
         </div>
 
         <h3 className="mb-3 text-xl font-bold text-slate-900 group-hover:text-blue-700 transition-colors duration-300">
-          {pack.title}
+          {leadMagnet.title}
         </h3>
         
         <p className="mb-4 text-slate-600 line-clamp-3">
-          {pack.description}
+          {leadMagnet.description}
         </p>
 
         <div className="mb-6 flex items-center gap-4 text-sm text-slate-500">
           <span className="flex items-center gap-1">
             <Download className="h-4 w-4" />
-            <AnimatedCounter targetValue={pack.download_count} />回
+            <AnimatedCounter targetValue={leadMagnet.download_count} />回
           </span>
-          <span>{(pack.file_size / 1024 / 1024).toFixed(1)}MB</span>
+          <span>{(leadMagnet.file_size / 1024 / 1024).toFixed(1)}MB</span>
         </div>
 
         <div className="mb-4 flex flex-wrap gap-2">
-          {pack.tags.slice(0, 3).map((tag, idx) => (
+          {leadMagnet.tags.slice(0, 3).map((tag, idx) => (
             <span
               key={idx}
               className="rounded-full bg-slate-100 px-3 py-1 text-xs text-slate-600 group-hover:bg-blue-100 group-hover:text-blue-700 transition-colors duration-300"
@@ -310,7 +310,7 @@ const BlogPostCard: React.FC<{ post: BlogPost; index: number }> = ({ post, index
 }
 
 export default function HomePage() {
-  const [packs, setPacks] = useState<Pack[]>([])
+  const [leadMagnets, setLeadMagnets] = useState<LeadMagnet[]>([])
   const [loading, setLoading] = useState(true)
   const [aiNews, setAiNews] = useState<AINewsItem[]>([])
   const [blogPosts, setBlogPosts] = useState<BlogPost[]>([])
@@ -330,7 +330,7 @@ export default function HomePage() {
   const isPrinciplesInView = useInView(principlesRef, { once: true, margin: "-100px" })
 
   useEffect(() => {
-    async function fetchPacks() {
+    async function fetchLeadMagnets() {
       try {
         setLoading(true)
         const { data, error } = await supabase
@@ -342,7 +342,7 @@ export default function HomePage() {
         if (error) {
           console.warn('Supabaseからのデータ取得失敗、モックデータを使用:', error)
           // Use realistic mock data based on community research
-          const mockPacks: Pack[] = [
+          const mockLeadMagnets: LeadMagnet[] = [
             {
               id: '1',
               title: 'AI動画生成で月3万円達成ガイド【2025年最新版】',
@@ -422,13 +422,13 @@ export default function HomePage() {
               updated_at: '2025-07-25T14:20:00Z'
             }
           ]
-          setPacks(mockPacks)
+          setLeadMagnets(mockLeadMagnets)
         } else {
-          setPacks(data || [])
+          setLeadMagnets(data || [])
         }
       } catch (error) {
         console.error('特典データの取得に失敗しました:', error)
-        setPacks([]) // Set empty array on error
+        setLeadMagnets([]) // Set empty array on error
       } finally {
         setLoading(false)
       }
@@ -520,7 +520,7 @@ export default function HomePage() {
       }
     }
 
-    fetchPacks()
+    fetchLeadMagnets()
     fetchAINews()
     fetchBlogPosts()
   }, [])
@@ -1004,8 +1004,8 @@ export default function HomePage() {
         ) : (
           <>
             <div className="grid gap-6 md:grid-cols-2 lg:grid-cols-3">
-              {packs.map((pack, index) => (
-                <PackCard key={pack.id} pack={pack} index={index} />
+              {leadMagnets.map((leadMagnet, index) => (
+                <LeadMagnetCard key={leadMagnet.id} leadMagnet={leadMagnet} index={index} />
               ))}
             </div>
             
