@@ -27,7 +27,18 @@ import {
   Brain,
   Microscope,
   FlaskConical,
-  TrendingUp
+  TrendingUp,
+  Download,
+  Star,
+  Tag,
+  Calendar,
+  ExternalLink,
+  Gift,
+  CheckCircle,
+  XCircle,
+  Crown,
+  Zap,
+  Hash
 } from 'lucide-react'
 
 interface TableData {
@@ -37,6 +48,170 @@ interface TableData {
 interface TableInfo {
   table_name: string
   column_count: number
+}
+
+interface LeadMagnet {
+  id: string
+  title: string
+  description: string
+  download_url: string
+  file_size: number
+  download_count: number
+  is_premium: boolean
+  is_active: boolean
+  tags: string[]
+  created_at: string
+  updated_at: string
+}
+
+// リードマグネット詳細カードコンポーネント
+const LeadMagnetCard: React.FC<{ leadMagnet: LeadMagnet; onEdit: (data: LeadMagnet) => void; onDelete: (id: string) => void }> = ({ 
+  leadMagnet, 
+  onEdit, 
+  onDelete 
+}) => {
+  const formatFileSize = (bytes: number): string => {
+    if (bytes === 0) return '0 Bytes'
+    const k = 1024
+    const sizes = ['Bytes', 'KB', 'MB', 'GB']
+    const i = Math.floor(Math.log(bytes) / Math.log(k))
+    return parseFloat((bytes / Math.pow(k, i)).toFixed(2)) + ' ' + sizes[i]
+  }
+
+  const formatDate = (dateString: string): string => {
+    return new Date(dateString).toLocaleDateString('ja-JP', {
+      year: 'numeric',
+      month: 'short',
+      day: 'numeric',
+      hour: '2-digit',
+      minute: '2-digit'
+    })
+  }
+
+  return (
+    <Card className="group hover:shadow-2xl transition-all duration-300 border-l-4 border-l-blue-500 bg-white/90 backdrop-blur-sm">
+      <CardHeader className="pb-3">
+        <div className="flex items-start justify-between gap-4">
+          <div className="flex-1 min-w-0">
+            <div className="flex items-center gap-2 mb-2">
+              <Gift className="h-5 w-5 text-blue-600" />
+              <CardTitle className="text-lg font-bold text-gray-800 truncate group-hover:text-blue-700 transition-colors">
+                {leadMagnet.title}
+              </CardTitle>
+            </div>
+            <div className="flex items-center gap-2 flex-wrap">
+              {leadMagnet.is_premium && (
+                <Badge className="bg-gradient-to-r from-yellow-400 to-orange-400 text-white font-bold">
+                  <Crown className="h-3 w-3 mr-1" />
+                  Premium
+                </Badge>
+              )}
+              <Badge variant={leadMagnet.is_active ? "default" : "secondary"} className={leadMagnet.is_active ? "bg-green-500 hover:bg-green-600" : ""}>
+                {leadMagnet.is_active ? (
+                  <>
+                    <CheckCircle className="h-3 w-3 mr-1" />
+                    Active
+                  </>
+                ) : (
+                  <>
+                    <XCircle className="h-3 w-3 mr-1" />
+                    Inactive
+                  </>
+                )}
+              </Badge>
+            </div>
+          </div>
+          <div className="flex gap-2">
+            <Button
+              variant="outline"
+              size="sm"
+              onClick={() => onEdit(leadMagnet)}
+              className="bg-blue-50 border-blue-200 hover:bg-blue-100 hover:border-blue-300"
+            >
+              <Edit className="h-4 w-4 text-blue-600" />
+            </Button>
+            <Button
+              variant="outline"
+              size="sm"
+              onClick={() => onDelete(leadMagnet.id)}
+              className="bg-red-50 border-red-200 hover:bg-red-100 hover:border-red-300"
+            >
+              <Trash2 className="h-4 w-4 text-red-600" />
+            </Button>
+          </div>
+        </div>
+      </CardHeader>
+      
+      <CardContent className="space-y-4">
+        <CardDescription className="text-gray-600 line-clamp-3 leading-relaxed">
+          {leadMagnet.description}
+        </CardDescription>
+        
+        {/* 統計情報 */}
+        <div className="grid grid-cols-2 md:grid-cols-4 gap-4 p-4 bg-gray-50 rounded-lg">
+          <div className="text-center">
+            <div className="flex items-center justify-center gap-1 text-blue-600 mb-1">
+              <Download className="h-4 w-4" />
+              <span className="text-sm font-medium">ダウンロード</span>
+            </div>
+            <p className="text-xl font-bold text-gray-800">{leadMagnet.download_count.toLocaleString()}</p>
+          </div>
+          
+          <div className="text-center">
+            <div className="flex items-center justify-center gap-1 text-purple-600 mb-1">
+              <Database className="h-4 w-4" />
+              <span className="text-sm font-medium">ファイルサイズ</span>
+            </div>
+            <p className="text-lg font-bold text-gray-800">{formatFileSize(leadMagnet.file_size)}</p>
+          </div>
+          
+          <div className="text-center">
+            <div className="flex items-center justify-center gap-1 text-green-600 mb-1">
+              <Hash className="h-4 w-4" />
+              <span className="text-sm font-medium">タグ数</span>
+            </div>
+            <p className="text-lg font-bold text-gray-800">{leadMagnet.tags.length}</p>
+          </div>
+          
+          <div className="text-center">
+            <div className="flex items-center justify-center gap-1 text-orange-600 mb-1">
+              <Calendar className="h-4 w-4" />
+              <span className="text-sm font-medium">作成日</span>
+            </div>
+            <p className="text-sm font-medium text-gray-800">{formatDate(leadMagnet.created_at)}</p>
+          </div>
+        </div>
+        
+        {/* タグ表示 */}
+        {leadMagnet.tags.length > 0 && (
+          <div>
+            <div className="flex items-center gap-2 mb-2">
+              <Tag className="h-4 w-4 text-gray-600" />
+              <span className="text-sm font-medium text-gray-700">タグ</span>
+            </div>
+            <div className="flex flex-wrap gap-2">
+              {leadMagnet.tags.map((tag, index) => (
+                <Badge key={index} variant="secondary" className="bg-blue-100 text-blue-700 hover:bg-blue-200">
+                  {tag}
+                </Badge>
+              ))}
+            </div>
+          </div>
+        )}
+        
+        {/* URL表示 */}
+        <div>
+          <div className="flex items-center gap-2 mb-2">
+            <ExternalLink className="h-4 w-4 text-gray-600" />
+            <span className="text-sm font-medium text-gray-700">ダウンロードURL</span>
+          </div>
+          <p className="text-sm text-gray-600 bg-gray-100 p-2 rounded truncate font-mono">
+            {leadMagnet.download_url}
+          </p>
+        </div>
+      </CardContent>
+    </Card>
+  )
 }
 
 const AdminDashboard = () => {
@@ -428,8 +603,72 @@ const AdminDashboard = () => {
                       <p className="text-sm text-gray-400 mt-1">データの取得には少し時間がかかる場合があります</p>
                     </div>
                   ) : tableData.length > 0 ? (
-                    <div className="overflow-auto max-h-[500px] rounded-lg border border-gray-200/50">
-                      <Table>
+                    selectedTable === 'lead_magnets' ? (
+                      // リードマグネット専用カード表示
+                      <div className="space-y-6">
+                        <div className="flex items-center justify-between mb-6">
+                          <div className="flex items-center gap-3">
+                            <div className="bg-gradient-to-r from-blue-600 to-indigo-600 p-2 rounded-lg">
+                              <Gift className="h-5 w-5 text-white" />
+                            </div>
+                            <div>
+                              <h3 className="text-lg font-bold text-gray-800">リードマグネット詳細表示</h3>
+                              <p className="text-sm text-gray-600">ダウンロード数、ファイルサイズ、タグ情報を含む完全なデータビュー</p>
+                            </div>
+                          </div>
+                          <Badge variant="secondary" className="bg-blue-100 text-blue-700">
+                            {tableData.length} 件
+                          </Badge>
+                        </div>
+                        
+                        <div className="grid gap-6 lg:grid-cols-2 xl:grid-cols-1 2xl:grid-cols-2">
+                          {tableData.map((leadMagnet) => (
+                            <LeadMagnetCard
+                              key={leadMagnet.id}
+                              leadMagnet={leadMagnet as LeadMagnet}
+                              onEdit={handleEdit}
+                              onDelete={handleDelete}
+                            />
+                          ))}
+                        </div>
+                        
+                        <div className="mt-8 p-4 bg-blue-50 rounded-lg border border-blue-200">
+                          <div className="flex items-center gap-2 mb-2">
+                            <Zap className="h-5 w-5 text-blue-600" />
+                            <span className="font-medium text-blue-800">クイック統計</span>
+                          </div>
+                          <div className="grid grid-cols-2 md:grid-cols-4 gap-4 text-sm">
+                            <div>
+                              <span className="text-blue-600 font-medium">総ダウンロード: </span>
+                              <span className="text-blue-800 font-bold">
+                                {tableData.reduce((sum, item) => sum + (item.download_count || 0), 0).toLocaleString()}
+                              </span>
+                            </div>
+                            <div>
+                              <span className="text-blue-600 font-medium">Premium: </span>
+                              <span className="text-blue-800 font-bold">
+                                {tableData.filter(item => item.is_premium).length} 件
+                              </span>
+                            </div>
+                            <div>
+                              <span className="text-blue-600 font-medium">Active: </span>
+                              <span className="text-blue-800 font-bold">
+                                {tableData.filter(item => item.is_active).length} 件
+                              </span>
+                            </div>
+                            <div>
+                              <span className="text-blue-600 font-medium">総容量: </span>
+                              <span className="text-blue-800 font-bold">
+                                {(tableData.reduce((sum, item) => sum + (item.file_size || 0), 0) / 1024 / 1024).toFixed(1)} MB
+                              </span>
+                            </div>
+                          </div>
+                        </div>
+                      </div>
+                    ) : (
+                      // 通常のテーブル表示
+                      <div className="overflow-auto max-h-[500px] rounded-lg border border-gray-200/50">
+                        <Table>
                         <TableHeader className="bg-gradient-to-r from-gray-50 to-blue-50">
                           <TableRow className="border-b border-gray-200/50">
                             {columns.map((column) => (
@@ -486,6 +725,7 @@ const AdminDashboard = () => {
                         </TableBody>
                       </Table>
                     </div>
+                    )
                   ) : (
                     <div className="text-center py-12">
                       <div className="relative mb-6">
