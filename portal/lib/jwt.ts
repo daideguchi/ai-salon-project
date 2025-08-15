@@ -1,6 +1,8 @@
 import { SignJWT, jwtVerify } from 'jose'
 
-const secret = new TextEncoder().encode(process.env.JWT_SECRET || 'fallback-secret-key')
+// JWT Secret with production fallback
+const jwtSecret = process.env.JWT_SECRET || 'ai-salon-portal-jwt-secret-2025-fallback'
+const secret = new TextEncoder().encode(jwtSecret)
 
 export interface JWTPayload {
   userId: string
