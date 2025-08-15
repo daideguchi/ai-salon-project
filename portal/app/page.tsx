@@ -535,8 +535,8 @@ export default function HomePage() {
       ],
       transition: {
         duration: 2,
-        repeat: Infinity,
-        ease: "easeInOut"
+        repeat: Infinity as number,
+        ease: [0.25, 0.1, 0.25, 1] as [number, number, number, number]
       }
     }
   }
