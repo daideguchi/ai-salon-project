@@ -5,7 +5,7 @@ import Link from 'next/link'
 import { Card, CardContent, CardDescription, CardHeader, CardTitle } from '@/components/ui/card'
 import { Badge } from '@/components/ui/badge'
 import { Button } from '@/components/ui/button'
-import { BookOpen, Download, Eye, FileText, Users, TrendingUp, Brain, Settings, Rocket } from 'lucide-react'
+import { BookOpen, Download, Eye, FileText, Users, TrendingUp, Brain, Settings, Rocket, MessageCircle } from 'lucide-react'
 
 interface LeadMagnet {
   id: string
@@ -251,10 +251,28 @@ export default function LeadMagnetsPage() {
                       閲覧
                     </Button>
                   </Link>
-                  <Button variant="outline" size="sm">
-                    <Download className="h-4 w-4 mr-2" />
-                    DL
-                  </Button>
+                  <div className="relative group">
+                    <Button variant="outline" size="sm" className="w-full">
+                      <Download className="h-4 w-4 mr-2" />
+                      DL
+                    </Button>
+                    <div className="absolute top-full right-0 mt-1 bg-white border border-gray-200 rounded-lg shadow-lg opacity-0 invisible group-hover:opacity-100 group-hover:visible transition-all duration-200 z-10 min-w-[200px]">
+                      <div className="p-2 space-y-1">
+                        <Link href="https://discord.gg/ai-salon" target="_blank">
+                          <Button variant="ghost" size="sm" className="w-full justify-start">
+                            <MessageCircle className="h-4 w-4 mr-2 text-purple-600" />
+                            Discordで受け取り
+                          </Button>
+                        </Link>
+                        <Link href="https://line.me/R/ti/p/@ai-salon" target="_blank">
+                          <Button variant="ghost" size="sm" className="w-full justify-start">
+                            <MessageCircle className="h-4 w-4 mr-2 text-green-600" />
+                            LINE公式で受け取り
+                          </Button>
+                        </Link>
+                      </div>
+                    </div>
+                  </div>
                 </div>
               </CardContent>
             </Card>

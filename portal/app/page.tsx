@@ -647,16 +647,18 @@ export default function HomePage() {
               </Button>
             </motion.div>
             
-            <Button
-              variant="outline"
-              size="lg"
-              className="rounded-full border-white/30 bg-white/10 text-white px-4 sm:px-6 py-3 sm:py-4 text-base sm:text-lg font-semibold backdrop-blur-sm hover:bg-white/20 hover:border-white/50 transition-all duration-300"
-            >
-              <span className="flex items-center gap-2">
-                <MessageCircle className="h-5 w-5" />
-                Discordを見てみる
-              </span>
-            </Button>
+            <Link href="https://discord.gg/ai-salon" target="_blank">
+              <Button
+                variant="outline"
+                size="lg"
+                className="rounded-full border-white/30 bg-white/10 text-white px-4 sm:px-6 py-3 sm:py-4 text-base sm:text-lg font-semibold backdrop-blur-sm hover:bg-white/20 hover:border-white/50 transition-all duration-300"
+              >
+                <span className="flex items-center gap-2">
+                  <MessageCircle className="h-5 w-5" />
+                  Discordを見てみる
+                </span>
+              </Button>
+            </Link>
           </motion.div>
           
           <motion.div
@@ -1090,16 +1092,30 @@ export default function HomePage() {
                     </span>
                   </Button>
                 </Link>
-                <Button
-                  size="lg"
-                  className="rounded-full bg-gradient-to-r from-green-600 to-emerald-600 text-white px-6 sm:px-8 py-3 sm:py-4 text-base sm:text-lg font-semibold shadow-xl hover:shadow-green-500/25 hover:from-green-700 hover:to-emerald-700 transition-all duration-300"
-                >
-                  <span className="flex items-center gap-2">
-                    <MessageCircle className="h-5 w-5" />
-                    Discordで無料受け取り
-                    <ChevronRight className="h-5 w-5" />
-                  </span>
-                </Button>
+                <Link href="https://discord.gg/ai-salon" target="_blank">
+                  <Button
+                    size="lg"
+                    className="rounded-full bg-gradient-to-r from-green-600 to-emerald-600 text-white px-6 sm:px-8 py-3 sm:py-4 text-base sm:text-lg font-semibold shadow-xl hover:shadow-green-500/25 hover:from-green-700 hover:to-emerald-700 transition-all duration-300"
+                  >
+                    <span className="flex items-center gap-2">
+                      <MessageCircle className="h-5 w-5" />
+                      Discordで無料受け取り
+                      <ChevronRight className="h-5 w-5" />
+                    </span>
+                  </Button>
+                </Link>
+                <Link href="https://line.me/R/ti/p/@ai-salon" target="_blank">
+                  <Button
+                    size="lg"
+                    className="rounded-full bg-gradient-to-r from-green-500 to-green-600 text-white px-6 sm:px-8 py-3 sm:py-4 text-base sm:text-lg font-semibold shadow-xl hover:shadow-green-500/25 hover:from-green-600 hover:to-green-700 transition-all duration-300"
+                  >
+                    <span className="flex items-center gap-2">
+                      <MessageCircle className="h-5 w-5" />
+                      LINE公式で受け取り
+                      <ChevronRight className="h-5 w-5" />
+                    </span>
+                  </Button>
+                </Link>
               </div>
               <p className="text-sm text-slate-500">
                 70,000円相当のリードマグネット完全セット
@@ -1377,21 +1393,23 @@ export default function HomePage() {
               variants={pulseVariants}
               animate="pulse"
             >
-              <Button
-                size="lg"
-                className="rounded-full bg-gradient-to-r from-yellow-400 to-orange-500 text-slate-900 px-6 sm:px-10 py-4 sm:py-5 text-lg sm:text-xl font-bold shadow-2xl hover:shadow-yellow-400/25 hover:from-yellow-300 hover:to-orange-400 transition-all duration-300 min-w-[280px] sm:min-w-[320px]"
-              >
-                <span className="flex items-center gap-3">
-                  <MessageCircle className="h-6 w-6" />
-                  今すぐDiscordで無料参加
-                  <motion.div
-                    animate={{ x: [0, 6, 0] }}
-                    transition={{ repeat: Infinity, duration: 1.5, ease: "easeInOut" }}
-                  >
-                    <ChevronRight className="h-6 w-6" />
-                  </motion.div>
-                </span>
-              </Button>
+              <Link href="https://discord.gg/ai-salon" target="_blank">
+                <Button
+                  size="lg"
+                  className="rounded-full bg-gradient-to-r from-yellow-400 to-orange-500 text-slate-900 px-6 sm:px-10 py-4 sm:py-5 text-lg sm:text-xl font-bold shadow-2xl hover:shadow-yellow-400/25 hover:from-yellow-300 hover:to-orange-400 transition-all duration-300 min-w-[280px] sm:min-w-[320px]"
+                >
+                  <span className="flex items-center gap-3">
+                    <MessageCircle className="h-6 w-6" />
+                    今すぐDiscordで無料参加
+                    <motion.div
+                      animate={{ x: [0, 6, 0] }}
+                      transition={{ repeat: Infinity, duration: 1.5, ease: "easeInOut" }}
+                    >
+                      <ChevronRight className="h-6 w-6" />
+                    </motion.div>
+                  </span>
+                </Button>
+              </Link>
             </motion.div>
           </motion.div>
 

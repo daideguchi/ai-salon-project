@@ -6,7 +6,7 @@ import Link from 'next/link'
 import { Button } from '@/components/ui/button'
 import { Card, CardContent, CardHeader, CardTitle } from '@/components/ui/card'
 import { Badge } from '@/components/ui/badge'
-import { ArrowLeft, Download, Share2, BookOpen, Clock, FileText } from 'lucide-react'
+import { ArrowLeft, Download, Share2, BookOpen, Clock, FileText, MessageCircle } from 'lucide-react'
 
 interface MarkdownContent {
   title: string
@@ -556,6 +556,58 @@ DALL-E 3で生成するためのプロンプトを作成してください。
             />
           </CardContent>
         </Card>
+
+        {/* Download Section */}
+        <div className="mt-8">
+          <Card className="border-2 border-green-200 bg-gradient-to-r from-green-50 to-emerald-50">
+            <CardContent className="p-8 text-center">
+              <h3 className="text-2xl font-bold text-gray-900 mb-4">
+                📥 このリードマグネットを今すぐ受け取る
+              </h3>
+              <p className="text-gray-600 mb-6 max-w-2xl mx-auto">
+                70,000円相当のリードマグネット完全セットの一部です。
+                Discord または LINE公式アカウントで無料受け取り可能です。
+              </p>
+              
+              <div className="flex flex-col sm:flex-row gap-4 justify-center items-center mb-6">
+                <Link href="https://discord.gg/ai-salon" target="_blank">
+                  <Button 
+                    size="lg"
+                    className="w-full sm:w-auto rounded-full bg-gradient-to-r from-purple-600 to-blue-600 text-white px-8 py-4 text-lg font-semibold shadow-xl hover:shadow-purple-500/25 hover:from-purple-700 hover:to-blue-700 transition-all duration-300"
+                  >
+                    <span className="flex items-center gap-2">
+                      <MessageCircle className="h-6 w-6" />
+                      Discordで受け取る
+                      <Download className="h-5 w-5" />
+                    </span>
+                  </Button>
+                </Link>
+                
+                <span className="text-gray-400 text-sm">または</span>
+                
+                <Link href="https://line.me/R/ti/p/@ai-salon" target="_blank">
+                  <Button 
+                    size="lg"
+                    variant="outline"
+                    className="w-full sm:w-auto rounded-full border-green-600 text-green-600 px-8 py-4 text-lg font-semibold hover:bg-green-50 transition-all duration-300"
+                  >
+                    <span className="flex items-center gap-2">
+                      <MessageCircle className="h-6 w-6" />
+                      LINE公式で受け取る
+                      <Download className="h-5 w-5" />
+                    </span>
+                  </Button>
+                </Link>
+              </div>
+              
+              <div className="text-sm text-gray-500 space-y-1">
+                <p>✅ 完全無料・登録不要</p>
+                <p>✅ 即座にダウンロード可能</p>
+                <p>✅ 追加の営業一切なし</p>
+              </div>
+            </CardContent>
+          </Card>
+        </div>
 
         {/* Footer */}
         <div className="mt-8 text-center">
