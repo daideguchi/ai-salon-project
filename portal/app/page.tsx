@@ -3,6 +3,7 @@
 import { useState, useEffect } from 'react'
 import { motion, useAnimation, useInView } from 'framer-motion'
 import { useRef } from 'react'
+import Link from 'next/link'
 import { supabase, type LeadMagnet } from '@/lib/supabase'
 import { Button } from '@/components/ui/button'
 import { Calendar, Download, Users, TrendingUp, Brain, Target, Lightbulb, ChevronRight, Gift, Star, Zap, Newspaper, BookOpen, ExternalLink, Clock, ArrowRight, MessageCircle, Video, PenTool, DollarSign, CheckCircle, Award, Shield, Heart, Sparkles, Rocket } from 'lucide-react'

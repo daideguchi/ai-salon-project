@@ -1,6 +1,6 @@
 'use client'
 
-import React, { useState, useEffect } from 'react'
+import React, { useState, useEffect, Suspense } from 'react'
 import { useSearchParams, useRouter } from 'next/navigation'
 import Link from 'next/link'
 import { Button } from '@/components/ui/button'
@@ -16,7 +16,7 @@ interface MarkdownContent {
   estimatedReadTime: number
 }
 
-export default function LeadMagnetViewPage() {
+function LeadMagnetViewContent() {
   const searchParams = useSearchParams()
   const router = useRouter()
   const path = searchParams.get('path')
@@ -357,10 +357,10 @@ DALL-E 3で生成するためのプロンプトを作成してください。
 - 他商品との比較表
 - 購入前の注意点も記載
 - Amazon以外の購入方法も提示
-```
+\`\`\`
 
 ### ASPアフィリエイト導入
-```
+\`\`\`
 おすすめASP:
 ✅ A8.net: 案件数最多
 ✅ もしもアフィリエイト: Amazon・楽天統合
@@ -372,7 +372,7 @@ DALL-E 3で生成するためのプロンプトを作成してください。
 - 成果条件が明確
 - 承認率80%以上
 - 報酬単価1,000円以上
-```
+\`\`\`
 
 ## 🚨 失敗回避ポイント
 
@@ -452,10 +452,10 @@ DALL-E 3で生成するためのプロンプトを作成してください。
       .replace(/^### (.*$)/gm, '<h3 class="text-xl font-medium text-gray-700 mb-3 mt-6">$1</h3>')
       .replace(/\*\*(.*?)\*\*/g, '<strong class="font-semibold">$1</strong>')
       .replace(/\*(.*?)\*/g, '<em class="italic">$1</em>')
-      .replace(/```(.*?)```/gs, '<pre class="bg-gray-100 p-4 rounded-lg overflow-x-auto mb-4"><code>$1</code></pre>')
+      .replace(/```([\s\S]*?)```/g, '<pre class="bg-gray-100 p-4 rounded-lg overflow-x-auto mb-4"><code>$1</code></pre>')
       .replace(/`(.*?)`/g, '<code class="bg-gray-100 px-2 py-1 rounded text-sm">$1</code>')
       .replace(/^- (.*$)/gm, '<li class="mb-2">$1</li>')
-      .replace(/(<li.*<\/li>)/s, '<ul class="list-disc list-inside mb-4 space-y-2">$1</ul>')
+      .replace(/(<li[\s\S]*?<\/li>)/g, '<ul class="list-disc list-inside mb-4 space-y-2">$1</ul>')
       .replace(/\n\n/g, '</p><p class="mb-4">')
       .replace(/^(?!<[h|u|p|l])(.*$)/gm, '<p class="mb-4">$1</p>')
   }
@@ -580,5 +580,22 @@ DALL-E 3で生成するためのプロンプトを作成してください。
         </div>
       </div>
     </div>
+  )
+}
+
+export default function LeadMagnetViewPage() {
+  return (
+    <Suspense fallback={
+      <div className="min-h-screen bg-gradient-to-br from-slate-50 to-blue-50 py-8">
+        <div className="max-w-4xl mx-auto px-4 sm:px-6 lg:px-8">
+          <div className="text-center py-20">
+            <div className="inline-block animate-spin rounded-full h-8 w-8 border-b-2 border-blue-600"></div>
+            <p className="mt-4 text-gray-600">読み込み中...</p>
+          </div>
+        </div>
+      </div>
+    }>
+      <LeadMagnetViewContent />
+    </Suspense>
   )
 }
