@@ -159,7 +159,7 @@ const LeadMagnetCard: React.FC<{ leadMagnet: LeadMagnet; index: number }> = ({ l
         </div>
 
         <div className="mb-4 flex flex-wrap gap-2">
-          {leadMagnet.tags.slice(0, 3).map((tag, idx) => (
+          {(leadMagnet.tags || []).slice(0, 3).map((tag, idx) => (
             <span
               key={idx}
               className="rounded-full bg-slate-100 px-3 py-1 text-xs text-slate-600 group-hover:bg-blue-100 group-hover:text-blue-700 transition-colors duration-300"
@@ -425,7 +425,12 @@ export default function HomePage() {
           ]
           setLeadMagnets(mockLeadMagnets)
         } else {
-          setLeadMagnets(data || [])
+          // Ensure tags property is always an array
+          const safeData = (data || []).map(item => ({
+            ...item,
+            tags: Array.isArray(item.tags) ? item.tags : []
+          }))
+          setLeadMagnets(safeData)
         }
       } catch (error) {
         console.error('特典データの取得に失敗しました:', error)
