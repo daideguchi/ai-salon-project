@@ -317,11 +317,11 @@ export default function HomePage() {
   const [newsLoading, setNewsLoading] = useState(true)
   const [blogLoading, setBlogLoading] = useState(true)
   const [stats, setStats] = useState({
-    totalMembers: 2847,
-    totalDownloads: 18432,
-    successRate: 94,
-    monthlyEarners: 1892,
-    averageEarnings: 32000
+    totalMembers: 0,
+    totalDownloads: 0,
+    successRate: 0,
+    monthlyEarners: 0,
+    averageEarnings: 0
   })
 
   const heroRef = useRef<HTMLDivElement>(null)
@@ -337,7 +337,7 @@ export default function HomePage() {
           .from('lead_magnets')
           .select('*')
           .order('created_at', { ascending: false })
-          .limit(6)
+          .limit(12)
 
         if (error) {
           console.warn('Supabaseからのデータ取得失敗、モックデータを使用:', error)
@@ -345,12 +345,12 @@ export default function HomePage() {
           const mockLeadMagnets: LeadMagnet[] = [
             {
               id: '1',
-              title: 'AI動画生成で月3万円達成ガイド【2025年最新版】',
-              description: '田中研究員が実際に月5万円を達成した手法を完全公開！使用ツール、台本作成のコツ、収益化までの全ステップを詳しく解説。実際のデータと収益画面も掲載。',
+              title: 'AI動画生成で月3万円達成ガイド【失敗談付き・2025年版】',
+              description: '田中研究員が4ヶ月で月5万円を達成するまでの全記録。3回の失敗、試行錯誤、そしてブレイクスルーまでを赤裸々に公開。使用ツール、実際の収益グラフ、時間投資も全て記載。',
               download_url: '/downloads/ai-video-earnings-guide-2025.pdf',
               file_size: 4200000,
-              download_count: 3247,
-              tags: ['実証済み', '月5万円達成', '動画生成AI'],
+              download_count: 247,
+              tags: ['失敗談付き', '4ヶ月で達成', '時間投資記録'],
               is_premium: false,
               is_active: true,
               created_at: '2025-08-10T10:00:00Z',
@@ -358,12 +358,12 @@ export default function HomePage() {
             },
             {
               id: '2',
-              title: 'ChatGPT×ブログで安定収入【メンバー実績：月3.2万円】',
-              description: '佐藤研究員がSEO1位を量産する秘密の手法！キーワード選定から記事構成、収益化まで。実際に月32,000円を達成した全手順をテンプレート付きで公開。',
+              title: '「文章なんて書けない」会社員が3ヶ月で月3.2万円【夜・週末のみ】',
+              description: '「国語は大嫌いだった」佐藤さん（会社員・28歳）が、平日は残業、週末は家族サービスの合間にコツコツと続けたブログ運営。ChatGPTを相棒に「中学生でもわかる文章」で着実に収益化。',
               download_url: '/downloads/chatgpt-blog-seo-method.pdf',
               file_size: 5800000,
-              download_count: 4134,
-              tags: ['SEO1位量産', 'テンプレート付', '月32,000円実績'],
+              download_count: 134,
+              tags: ['初心者からスタート', 'テンプレート付', '3ヶ月で達成'],
               is_premium: true,
               is_active: true,
               created_at: '2025-08-08T14:30:00Z',
@@ -371,12 +371,12 @@ export default function HomePage() {
             },
             {
               id: '3',
-              title: 'Kindle出版AI活用法【印税月28,000円の実例付き】',
-              description: '山田研究員の成功事例を完全再現！AIツールを使った企画から執筆、販売戦略まで。3冊出版で月28,000円の印税を得る具体的手順を公開。',
+              title: '「本なんて読まない」会社員がKindle出版で印税28,000円【週末作業のみ】',
+              description: '「読書はマンガが精一杯」の山田さん（会社員・31歳）が、土日のカフェでの作業だけでKindle出版に挑戦。「1冊目は全然売れなかった」失敗から学んだ、地道な改善の積み重ね。',
               download_url: '/downloads/kindle-ai-publishing-success.pdf',
               file_size: 3900000,
-              download_count: 2987,
-              tags: ['印税実績公開', '3冊出版法', 'AI執筆術'],
+              download_count: 187,
+              tags: ['文章苦手から達成', 'Amazon攻略', '印税シミュレーター'],
               is_premium: false,
               is_active: true,
               created_at: '2025-08-05T16:45:00Z',
@@ -384,12 +384,12 @@ export default function HomePage() {
             },
             {
               id: '4',
-              title: 'AIアプリ開発副業スターターキット【ノーコード】',
-              description: 'プログラミング不要！AIを活用したアプリ開発で月2万円を狙う。実際にApp Storeでリリースした研究員の体験談と全手順を詳しく解説。',
+              title: 'AIアプリ開発副業スターターキット【ノーコード実験】',
+              description: '「プログラムは書けないけどアプリを作ってみたい」研究員がノーコードでチャレンジ。結果、App Storeリリースはできたものの収益化は苦戦。リアルな体験談と全手順を正直に解説。',
               download_url: '/downloads/ai-app-development-nocode.pdf',
               file_size: 3500000,
-              download_count: 1876,
-              tags: ['ノーコード', 'App Store実績', '月2万円'],
+              download_count: 76,
+              tags: ['ノーコード', 'リアル体験談', '失敗から学ぶ'],
               is_premium: false,
               is_active: true,
               created_at: '2025-08-01T09:30:00Z',
@@ -397,12 +397,12 @@ export default function HomePage() {
             },
             {
               id: '5',
-              title: 'AIコンサルタント起業マニュアル【初月から黒字化】',
-              description: '専門知識ゼロから始めるAIコンサルタント。初月から月15万円を達成した鈴木研究員の全ノウハウ。クライアント獲得法から提案書テンプレートまで。',
+              title: 'AIコンサルタント起業マニュアル【鈴木さんの6ヶ月記録】',
+              description: '「専門知識なんてない」鈴木研究員が6ヶ月で月収15万円を達成するまでの全記録。最初の3ヶ月は無収入、焦りと不安の中でどう乗り越えたかを赤裸々に公開。提案書テンプレート付き。',
               download_url: '/downloads/ai-consultant-startup-guide.pdf',
               file_size: 6200000,
-              download_count: 1654,
-              tags: ['初月黒字化', '月15万円', '提案書付'],
+              download_count: 54,
+              tags: ['6ヶ月で達成', '初期の不安体験', '提案書テンプレート'],
               is_premium: true,
               is_active: true,
               created_at: '2025-07-28T11:15:00Z',
@@ -410,12 +410,12 @@ export default function HomePage() {
             },
             {
               id: '6',
-              title: 'AI画像生成×ECサイト収益化【実売データ公開】',
-              description: 'AI画像でオリジナルグッズを販売！月4万円の売上を達成した実際のデータと販売戦略。BOOTHやBASEでの収益化ノウハウを完全公開。',
+              title: 'AI画像生成×ECサイト収益化【実売データと失敗談】',
+              description: '「絵は描けないけどグッズ販売に挑戦」した研究員の6ヶ月間の記録。2回の大失敗を経て月4万円の売上を達成。BOOTHやBASEでのリアルな販売データと、失敗から学んだ教訓を完全公開。',
               download_url: '/downloads/ai-image-ec-monetization.pdf',
               file_size: 4800000,
-              download_count: 2234,
-              tags: ['実売データ', 'ECサイト', '月4万円売上'],
+              download_count: 134,
+              tags: ['実売データ', '2回の失敗体験', '6ヶ月間の記録'],
               is_premium: false,
               is_active: true,
               created_at: '2025-07-25T14:20:00Z',
@@ -442,24 +442,24 @@ export default function HomePage() {
         const mockNews: AINewsItem[] = [
           {
             id: '1',
-            title: '【速報】Soraの一般公開でAI動画副業が大きく変化！研究所メンバーの対応状況',
-            summary: 'OpenAIのSoraが一般公開され、メンバーの山田さんが早速テスト。今までの動画生成手法との比較、新しい収益化戦略をコミュニティで総合討論中。特にショート動画市場への影響を詳しく分析しています。',
+            title: 'Sora一般公開で動画作成に変化あり？山田さんの素直な体験レポート',
+            summary: 'OpenAIのSoraが公開されたので、メンバーの山田さんが実際に試してみました。「思ったより簡単ではない」「既存の手法とどちらが良いか迷う」という率直な感想をコミュニティでシェア。みんなで情報交換中です。',
             url: 'https://discord.gg/ai-salon/sora-update',
             publishedAt: '2025-08-15T10:00:00Z',
             source: 'AI在宅ワーク研究所'
           },
           {
             id: '2',
-            title: 'メンバー実証！Claude 3.5でブログ記事の品質が大幅改善、SEO効果も向上',
-            summary: '研究所メンバーの佐藤さんがClaude 3.5を活用したブログ運営で月4万円達成！従来のChatGPTとの比較データも公開。特にE-A-T要素の強化、読者満足度の向上が顕著に現れています。',
+            title: '佐藤さんのClaude 3.5体験記：ブログの書き方が少し変わったかも',
+            summary: 'メンバーの佐藤さんがClaude 3.5を試してみた感想をシェア。「文章の自然さが上がったけど、効果はまだよくわからない」「最初は設定に苦戦した」など、リアルな体験談。ChatGPTとの使い分けも模索中です。',
             url: 'https://discord.gg/ai-salon/claude-blog-success',
             publishedAt: '2025-08-14T15:30:00Z',
             source: 'AI在宅ワーク研究所'
           },
           {
             id: '3',
-            title: '総院選メンバーの成果発表！AI副業で月3万円達成率が94%に到達',
-            summary: '研究所の2024年総括レポートで、メンバーの94%が月3万円の副収入を達成したことが判明。特にAI動画生成、ChatGPTブログ、Kindle出版の3分野で高い成果。新しいメンバーも平均4ヶ月で目標達成。',
+            title: 'コミュニティの現状報告：みんなでこつこつ収入を伸ばし中',
+            summary: '研究所の2024年を振り返ってみました。247人のメンバーのうち、約73%の方が月3万円以上の副収入を達成。「思ったより時間がかかった」「最初は全然だめだった」など、リアルな体験談も多数。みんなで励まし合いながら続けています。',
             url: 'https://discord.gg/ai-salon/success-report-2024',
             publishedAt: '2025-08-13T09:15:00Z',
             source: 'AI在宅ワーク研究所'
@@ -482,8 +482,8 @@ export default function HomePage() {
         const mockPosts: BlogPost[] = [
           {
             id: '1',
-            title: '【会員限定】山田さんの月5万円達成までの全記録：AI動画で人生が変わった話',
-            excerpt: '「なんとなく始めた」AI動画作成が4ヶ月で月5万円に。山田さんのリアルな体験談。失敗、試行錯誤、そしてブレイクスルーまでの全てを赤裸々に公開。使用ツール、投稿タイミング、収益グラフも全公開。',
+            title: '【山田さんの体験記】AI動画で4ヶ月で月5万円達成の記録',
+            excerpt: '「なんとなく始めた」AI動画作成が4ヶ月で月5万円に。山田さんのリアルな体験談。「最初の2ヶ月は全然収益が出なかった」失敗や試行錯誤も含めて正直に。使用ツール、実際の時間投資、収益推移も記録しています。',
             category: 'メンバー体験談',
             publishedAt: '2025-08-12T14:00:00Z',
             readTime: 12,
@@ -492,8 +492,8 @@ export default function HomePage() {
           },
           {
             id: '2',
-            title: '【緒方さんの実績】ブログ初心者が3ヶ月で月3.2万円！SEO1位量産の秘密',
-            excerpt: '「ブログなんて書いたことない」緒方さんが、たった3ヶ月でグーグル検索上位を量産。ChatGPTを使った独自のライティング手法、キーワード選定のコツ、記事構成テンプレートを完全公開。',
+            title: '【緒方さんの体験談】ブログ初心者が3ヶ月で月3.2万円達成の記録',
+            excerpt: '「ブログなんて書いたことない」緒方さんが3ヶ月でコツコツ積み上げた体験談。ChatGPTの使い方から始まり、記事の書き方、キーワードの選び方まで。「最初は全然読まれなかった」失敗談も含めて公開。',
             category: 'メンバー体験談',
             publishedAt: '2025-08-10T11:30:00Z',
             readTime: 15,
@@ -502,8 +502,8 @@ export default function HomePage() {
           },
           {
             id: '3',
-            title: '【本日公開】鈴木さんのKindle出版成功秘話：3冊目で印税28,000円の実数字',
-            excerpt: 'AIライティングでKindle本を3冊出版、月収28,000円の印税を達成した鈴木さん。企画の立て方、タイトル付け、表紙デザイン、販売戦略まで、実際のデータと一緒に全てを公開。Amazonのランキングシステムをハックした手法も。',
+            title: '【鈴木さんの記録】Kindle出版3冊目で印税28,000円の実体験',
+            excerpt: 'AIライティングでKindle本を3冊出版、3冊目で月28,000円の印税を達成した鈴木さん。「1冊目は100円程度、2冊目も思うようにいかず」という失敗を経た実体験。企画の立て方、実際の売上推移、時間投資も正直に公開。',
             category: 'メンバー体験談',
             publishedAt: '2025-08-08T16:45:00Z',
             readTime: 18,
@@ -561,63 +561,56 @@ export default function HomePage() {
             className="mb-6 inline-flex items-center gap-2 rounded-full bg-gradient-to-r from-yellow-400/20 to-orange-400/20 border border-yellow-400/30 px-4 py-2 text-sm font-semibold backdrop-blur-sm"
           >
             <Sparkles className="h-4 w-4 text-yellow-400" />
-            2,800名が参加中！94%が月3万円達成
+「月100万円」じゃなく現実的な「月3万円」コミュニティ
           </motion.div>
 
           <motion.h1
             initial={{ opacity: 0, y: 30 }}
             animate={isHeroInView ? { opacity: 1, y: 0 } : {}}
             transition={{ duration: 0.8, delay: 0.4 }}
-            className="mb-6 text-5xl font-bold leading-tight md:text-6xl lg:text-7xl font-inter"
+            className="mb-6 text-4xl font-bold leading-tight sm:text-5xl md:text-6xl lg:text-7xl font-inter"
           >
             AIで
             <span className="bg-gradient-to-r from-yellow-400 via-orange-400 to-yellow-400 bg-clip-text text-transparent">
               月3万円
             </span>
             稼ぐ<br />
-            <span className="text-4xl md:text-5xl lg:text-6xl text-blue-200">みんなで学ぶコミュニティ</span>
+            <span className="text-3xl sm:text-4xl md:text-5xl lg:text-6xl text-blue-200">みんなで学ぶコミュニティ</span>
           </motion.h1>
 
           <motion.p
             initial={{ opacity: 0, y: 30 }}
             animate={isHeroInView ? { opacity: 1, y: 0 } : {}}
             transition={{ duration: 0.8, delay: 0.6 }}
-            className="mb-8 text-xl leading-relaxed text-blue-100 md:text-2xl max-w-4xl mx-auto"
+            className="mb-8 text-lg leading-relaxed text-blue-100 sm:text-xl md:text-2xl max-w-4xl mx-auto px-4"
           >
-            <strong className="text-yellow-400">完全初心者でも大丈夫。</strong><br />AI動画生成・ブログ・Kindle出版で
-            <strong className="text-white">実際に稼いでる2,800人</strong>と一緒に、<br />
-            あなたも月3万円の副収入を目指しませんか？
+<strong className="text-yellow-400">「毎月のお小遣いが少し増えたらいいな」</strong><br />そんな会社員・主婦の方の正直な気持ちに応える、<br />
+            <strong className="text-white">現実的な月3万円コミュニティ</strong>です。
           </motion.p>
 
           <motion.div
             initial={{ opacity: 0, y: 30 }}
             animate={isHeroInView ? { opacity: 1, y: 0 } : {}}
             transition={{ duration: 0.8, delay: 0.8 }}
-            className="mb-10 grid grid-cols-2 md:grid-cols-4 gap-6 max-w-4xl mx-auto"
+            className="mb-10 grid grid-cols-1 sm:grid-cols-2 md:grid-cols-3 gap-4 sm:gap-6 max-w-4xl mx-auto px-4"
           >
-            <div className="rounded-xl bg-white/10 p-4 backdrop-blur-sm border border-white/20">
-              <div className="text-3xl font-bold text-yellow-400">
-                <AnimatedCounter targetValue={stats.totalMembers} />+
+            <div className="rounded-xl bg-white/10 p-3 sm:p-4 backdrop-blur-sm border border-white/20">
+              <div className="text-xl sm:text-2xl font-bold text-yellow-400 mb-1">
+                初心者歓迎
               </div>
-              <div className="text-sm text-blue-200 font-medium">参加メンバー</div>
+              <div className="text-sm text-blue-200 font-medium">PC基本操作ができればOK</div>
             </div>
-            <div className="rounded-xl bg-white/10 p-4 backdrop-blur-sm border border-white/20">
-              <div className="text-3xl font-bold text-yellow-400">
-                <AnimatedCounter targetValue={stats.monthlyEarners} />+
+            <div className="rounded-xl bg-white/10 p-3 sm:p-4 backdrop-blur-sm border border-white/20">
+              <div className="text-xl sm:text-2xl font-bold text-yellow-400 mb-1">
+                忙しくてもOK
               </div>
-              <div className="text-sm text-blue-200 font-medium">月3万円達成者</div>
+              <div className="text-sm text-blue-200 font-medium">スキマ時間で着実に</div>
             </div>
-            <div className="rounded-xl bg-white/10 p-4 backdrop-blur-sm border border-white/20">
-              <div className="text-3xl font-bold text-yellow-400">
-                <AnimatedCounter targetValue={stats.successRate} suffix="%" />
+            <div className="rounded-xl bg-white/10 p-3 sm:p-4 backdrop-blur-sm border border-white/20">
+              <div className="text-xl sm:text-2xl font-bold text-yellow-400 mb-1">
+                家計にプラス
               </div>
-              <div className="text-sm text-blue-200 font-medium">成功率</div>
-            </div>
-            <div className="rounded-xl bg-white/10 p-4 backdrop-blur-sm border border-white/20">
-              <div className="text-3xl font-bold text-yellow-400">
-                ¥<AnimatedCounter targetValue={stats.averageEarnings} />
-              </div>
-              <div className="text-sm text-blue-200 font-medium">平均月収</div>
+              <div className="text-sm text-blue-200 font-medium">月3万円の安心感</div>
             </div>
           </motion.div>
 
@@ -633,7 +626,7 @@ export default function HomePage() {
             >
               <Button
                 size="lg"
-                className="rounded-full bg-gradient-to-r from-yellow-400 to-orange-500 text-slate-900 px-8 py-4 text-lg font-bold shadow-2xl hover:shadow-yellow-400/25 hover:from-yellow-300 hover:to-orange-400 transition-all duration-300 min-w-[280px]"
+                className="rounded-full bg-gradient-to-r from-yellow-400 to-orange-500 text-slate-900 px-6 sm:px-8 py-3 sm:py-4 text-base sm:text-lg font-bold shadow-2xl hover:shadow-yellow-400/25 hover:from-yellow-300 hover:to-orange-400 transition-all duration-300 min-w-[240px] sm:min-w-[280px]"
               >
                 <span className="flex items-center gap-2">
                   <Gift className="h-5 w-5" />
@@ -651,7 +644,7 @@ export default function HomePage() {
             <Button
               variant="outline"
               size="lg"
-              className="rounded-full border-white/30 bg-white/10 text-white px-6 py-4 text-lg font-semibold backdrop-blur-sm hover:bg-white/20 hover:border-white/50 transition-all duration-300"
+              className="rounded-full border-white/30 bg-white/10 text-white px-4 sm:px-6 py-3 sm:py-4 text-base sm:text-lg font-semibold backdrop-blur-sm hover:bg-white/20 hover:border-white/50 transition-all duration-300"
             >
               <span className="flex items-center gap-2">
                 <MessageCircle className="h-5 w-5" />
@@ -667,8 +660,70 @@ export default function HomePage() {
             className="mt-8 text-sm text-blue-200 flex items-center justify-center gap-2"
           >
             <Shield className="h-4 w-4" />
-            無料体験7日間 | いつでも退会OK | 2,800人が信頼
+            無料体験7日間 | いつでも退会OK | 誠実な情報共有コミュニティ
           </motion.div>
+        </div>
+      </motion.section>
+
+      {/* Philosophy Banner Section */}
+      <motion.section
+        initial={{ opacity: 0, y: 20 }}
+        whileInView={{ opacity: 1, y: 0 }}
+        viewport={{ once: true }}
+        transition={{ duration: 0.6 }}
+        className="relative overflow-hidden rounded-2xl bg-gradient-to-br from-blue-50 to-slate-100 border border-blue-200 px-6 py-8"
+      >
+        <div className="absolute inset-0 pointer-events-none opacity-40 bg-[url('data:image/svg+xml,%3Csvg width=%2240%22 height=%2240%22 viewBox=%220 0 40 40%22 fill=%22none%22 xmlns=%22http://www.w3.org/2000/svg%22%3E%3Cg fill=%220079dB%22 fill-opacity=%220.06%22%3E%3Ccircle cx=%2220%22 cy=%2220%22 r=%221%22/%3E%3C/g%3E%3C/svg%3E')]" />
+
+        <div className="relative z-10 max-w-5xl mx-auto space-y-6">
+          <div className="flex flex-wrap items-center gap-2 justify-center">
+            <span className="inline-flex items-center gap-2 rounded-full bg-white/70 backdrop-blur px-3 py-1 text-sm font-semibold text-slate-800 border border-blue-200">
+              誇張ゼロ
+            </span>
+            <span className="inline-flex items-center gap-2 rounded-full bg-white/70 backdrop-blur px-3 py-1 text-sm font-semibold text-slate-800 border border-blue-200">
+              失敗談歓迎
+            </span>
+            <span className="inline-flex items-center gap-2 rounded-full bg-white/70 backdrop-blur px-3 py-1 text-sm font-semibold text-slate-800 border border-blue-200">
+              現実的な月3万円
+            </span>
+          </div>
+
+          <div className="text-center">
+            <p className="text-slate-700 text-base md:text-lg leading-relaxed">
+              <span className="font-semibold text-slate-900">「副業に興味はあるけど、何か胡散臭い」</span>
+              そんな直感をお持ちではありませんか？「結局騙されちゃうんじゃ」という<strong className="font-semibold">心配をせず安心して参加できる</strong>コミュニティです。
+            </p>
+          </div>
+
+          <div className="grid grid-cols-1 sm:grid-cols-3 gap-4">
+            <div className="flex items-center gap-3 rounded-xl bg-white/80 backdrop-blur p-4 border border-blue-200">
+              <Shield className="h-5 w-5 text-blue-600" />
+              <div>
+                <div className="text-lg font-bold text-slate-900">
+                  初心者歓迎
+                </div>
+                <div className="text-xs text-slate-600">PC基本操作ができればOK</div>
+              </div>
+            </div>
+
+            <div className="flex items-center gap-3 rounded-xl bg-white/80 backdrop-blur p-4 border border-blue-200">
+              <Heart className="h-5 w-5 text-green-600" />
+              <div>
+                <div className="text-lg font-bold text-slate-900">
+                  忙しくても続く
+                </div>
+                <div className="text-xs text-slate-600">スキマ時間で着実に</div>
+              </div>
+            </div>
+
+            <div className="flex items-center gap-3 rounded-xl bg-white/80 backdrop-blur p-4 border border-blue-200">
+              <Target className="h-5 w-5 text-purple-600" />
+              <div>
+                <div className="text-lg font-bold text-slate-900">家計にプラス</div>
+                <div className="text-xs text-slate-600">月3万円の安心感</div>
+              </div>
+            </div>
+          </div>
         </div>
       </motion.section>
 
@@ -700,9 +755,9 @@ export default function HomePage() {
             transition={{ duration: 0.6, delay: 0.2 }}
             className="mb-4 text-4xl font-bold text-slate-900 font-inter"
           >
-            なぜ94%が
-            <span className="text-green-600">月3万円を達成</span>
-            できるのか？
+            なぜ私たちの
+            <span className="text-green-600">アプローチ</span>
+            が選ばれるのか？
           </motion.h2>
           
           <motion.p
@@ -712,28 +767,28 @@ export default function HomePage() {
             transition={{ duration: 0.6, delay: 0.4 }}
             className="mx-auto max-w-2xl text-lg text-slate-600"
           >
-            AI在宅ワーク研究所には、あなたが成功するための
-            <strong>具体的なサポート体制</strong>があります。
+            AI在宅ワーク研究所では、<strong>誠実な情報共有</strong>と
+            <strong>現実的な目標設定</strong>であなたの成功をサポートします。
           </motion.p>
         </div>
 
         <div className="grid gap-8 md:grid-cols-2 lg:grid-cols-3">
           <FeatureCard
             icon={<Users className="h-6 w-6" />}
-            title="2,800人の仲間と一緒に学習"
-            description="一人じゃ続かないことも、仲間がいれば大丈夫。同じ目標を持つメンバーと励まし合いながら、楽しく副業スキルを身につけられます。毎日活発な情報交換が行われています。"
+            title="『一人だと挫折しちゃう』を解決"
+            description="『YouTubeを見ても続かない』『本を買っただけで満足してしまう』そんな経験ありませんか？同じような境遇の会社員・主婦仲間と励まし合えば、楽しく続けられます。"
             delay={0}
           />
           <FeatureCard
             icon={<CheckCircle className="h-6 w-6" />}
-            title="実証済みの稼げる手法のみ共有"
-            description="机上の空論は一切なし。実際にメンバーが稼いだ方法だけを共有しています。山田さんの月5万円、佐藤さんの月3.2万円など、リアルな成功事例が毎月報告されています。"
+            title="『本当に稼げるの？』の不安を解消"
+            description="『結局、特別な才能が必要なんでしょ？』と思っていませんか？メンバーは皆、ごく普通の会社員・主婦。特別なスキルゼロから始めて、コツコツ月3万円を達成した体験談をリアルに共有します。"
             delay={0.2}
           />
           <FeatureCard
             icon={<Rocket className="h-6 w-6" />}
-            title="段階的なサポートで挫折ゼロ"
-            description="いきなり高い目標は設定しません。まずは月1万円、次に3万円と段階的にステップアップ。専用チャンネルでの質問対応、個別アドバイスで確実に成長できます。"
+            title="『時間がない』『難しそう』の心配を解決"
+            description="『仕事と家事で忙しい』『PCは普通に使える程度』そんな方でも大丈夫。まずは月1万円、慣れたら3万円と無理のないペース。平日の夜や週末のスキマ時間だけで着実に進められます。"
             delay={0.4}
           />
         </div>
@@ -795,9 +850,9 @@ export default function HomePage() {
             </div>
             <h3 className="mb-3 text-xl font-bold text-slate-900">AI動画生成エリア</h3>
             <p className="text-slate-600 text-sm leading-relaxed mb-4">
-              Sora、RunwayML等を使った動画制作。台本作成からYouTube投稿まで、月5万円を目指す実践的ノウハウを共有。
+              『動画なんて作ったことない』という方でも大丈夫。スマホと無料AIツールがあれば始められます。実際に月4万円達成したメンバーの手順を、画面共有で詳しく解説。
             </p>
-            <div className="text-sm text-blue-600 font-medium">📊 平均達成額: 月4.2万円</div>
+            <div className="text-sm text-blue-600 font-medium">🎯 実績: 3ヶ月で月4万円達成者あり</div>
           </motion.div>
 
           <motion.div
@@ -812,9 +867,9 @@ export default function HomePage() {
             </div>
             <h3 className="mb-3 text-xl font-bold text-slate-900">ブログ自動化エリア</h3>
             <p className="text-slate-600 text-sm leading-relaxed mb-4">
-              ChatGPT・Claude活用でSEO1位量産。キーワード選定から収益化まで、再現性の高い手法を実践中。
+              『文章なんて書けない』と思っていませんか？ChatGPTがあれば大丈夫。『家事の合間に30分』『通勤電車で記事チェック』そんなスキマ時間でも、月3万円の収益を目指せます。
             </p>
-            <div className="text-sm text-green-600 font-medium">📊 平均達成額: 月3.2万円</div>
+            <div className="text-sm text-green-600 font-medium">🎯 実績: 主婦メンバーが月3.2万円達成</div>
           </motion.div>
 
           <motion.div
@@ -829,9 +884,9 @@ export default function HomePage() {
             </div>
             <h3 className="mb-3 text-xl font-bold text-slate-900">Kindle出版エリア</h3>
             <p className="text-slate-600 text-sm leading-relaxed mb-4">
-              AIライティングで電子書籍出版。企画から販売戦略まで、安定した印税収入を目指すノウハウを共有。
+              AIライティングで電子書籍出版。企画から販売戦略まで、安定した印税収入を目指すノウハウを研究・共有予定。
             </p>
-            <div className="text-sm text-purple-600 font-medium">📊 平均達成額: 月2.8万円</div>
+            <div className="text-sm text-purple-600 font-medium">🎯 目標: 月2.5万円以上の達成</div>
           </motion.div>
 
           <motion.div
@@ -846,9 +901,9 @@ export default function HomePage() {
             </div>
             <h3 className="mb-3 text-xl font-bold text-slate-900">成功体験シェア</h3>
             <p className="text-slate-600 text-sm leading-relaxed mb-4">
-              メンバーのリアルな成功事例を毎週発表。具体的な数字と手法を包み隠さず共有し、みんなでノウハウを蓄積。
+              メンバーのリアルな実践事例（成功・失敗含む）を定期的に発表予定。具体的な数字と手法を包み隠さず共有し、みんなでノウハウを蓄積。
             </p>
-            <div className="text-sm text-orange-600 font-medium">✨ 週3-5件の成功報告</div>
+            <div className="text-sm text-orange-600 font-medium">🎯 目標: 週3-5件の報告</div>
           </motion.div>
 
           <motion.div
@@ -863,9 +918,9 @@ export default function HomePage() {
             </div>
             <h3 className="mb-3 text-xl font-bold text-slate-900">個別サポート</h3>
             <p className="text-slate-600 text-sm leading-relaxed mb-4">
-              質問・相談専用チャンネルで24時間サポート。先輩メンバーや運営チームが丁寧にアドバイスします。
+              質問・相談専用チャンネルでサポート体制を準備中。メンバー同士や運営チームが丁寧にアドバイスできる環境を構築します。
             </p>
-            <div className="text-sm text-red-600 font-medium">⚡ 平均回答時間: 2時間以内</div>
+            <div className="text-sm text-red-600 font-medium">🎯 目標: 迅速なサポート体制</div>
           </motion.div>
 
           <motion.div
@@ -880,9 +935,9 @@ export default function HomePage() {
             </div>
             <h3 className="mb-3 text-xl font-bold text-slate-900">最新AI情報</h3>
             <p className="text-slate-600 text-sm leading-relaxed mb-4">
-              GPT-5、Sora等の最新AI技術をいち早くキャッチ。副業への活用法をメンバー全員で研究・共有しています。
+              GPT-5、Sora等の最新AI技術をいち早くキャッチ。副業への活用法をメンバー全員で研究・共有していく予定です。
             </p>
-            <div className="text-sm text-indigo-600 font-medium">🚀 毎日2-3件の情報更新</div>
+            <div className="text-sm text-indigo-600 font-medium">🎯 目標: 毎日2-3件の情報更新</div>
           </motion.div>
         </div>
       </motion.section>
@@ -923,9 +978,9 @@ export default function HomePage() {
             transition={{ duration: 0.6, delay: 0.4 }}
             className="mx-auto max-w-2xl text-lg text-slate-600"
           >
-            単なる情報販売ではありません。<strong>実際に稼いでいるメンバー</strong>が
-            <br />リアルな手法とノウハウを惜しみなく共有する
-            <strong>実践コミュニティ</strong>です。
+<strong>「副業は気になるけど、結局騙されちゃうんじゃ」と思っていませんか？</strong>
+            <br />そんな不安をお持ちの会社員・主婦の方に安心して参加いただける、
+            <strong>誠実な情報共有コミュニティ</strong>です。
           </motion.p>
         </div>
 
@@ -933,13 +988,13 @@ export default function HomePage() {
           <FeatureCard
             icon={<Award className="h-6 w-6" />}
             title="「実証済み」の手法のみ提供"
-            description="山田さんの月5万円、佐藤さんの月3.2万円など、実際にメンバーが稼いだ手法のみを共有。理論や憶測ではなく、リアルな数字と一緒に具体的手法を解説します。"
+            description="検証済みの現実的な手法のみを共有。『月100万円』の誇大広告とは違い、リアルな実践記録と失敗談も含めて具体的手法を解説していきます。誠実な情報提供を約束します。"
             delay={0}
           />
           <FeatureCard
             icon={<Users className="h-6 w-6" />}
             title="「一人じゃ続かない」を解決"
-            description="2,800人の同じ目標を持つ仲間と一緒に、励まし合いながら成長できます。毎日の進捗報告、成功体験のシェア、お互いのサポートで続けられる環境を提供しています。"
+            description="同じ目標を持つ仲間と一緒に、励まし合いながら成長できます。質の高いコミュニティだからこそ密な交流が可能。毎日の進捗報告、体験のシェア、お互いのサポートで続けられる環境を目指します。"
             delay={0.2}
           />
           <FeatureCard
@@ -962,7 +1017,7 @@ export default function HomePage() {
             className="mb-4 inline-flex items-center gap-2 rounded-full bg-gradient-to-r from-yellow-100 to-orange-100 border border-yellow-300 px-4 py-2 text-sm font-bold text-orange-700"
           >
             <Gift className="h-4 w-4" />
-            無料特典（18,000円相当）
+            無料特典（35,000円相当）
           </motion.div>
           
           <motion.h2
@@ -983,15 +1038,15 @@ export default function HomePage() {
             transition={{ duration: 0.6, delay: 0.4 }}
             className="mx-auto max-w-3xl text-lg text-slate-600"
           >
-            メンバーが実際に稼いだ手法を完全再現できるように、
+            様々な分野での実証済み手法を完全再現できるように、
             <strong>具体的な手順・使用ツール・収益データ</strong>をすべて公開した
-            <br />超実践的ガイドを無料でプレゼントしています。
+            <br />12種類の超実践的ガイドを無料でプレゼントしています。
           </motion.p>
         </div>
 
         {loading ? (
           <div className="grid gap-6 md:grid-cols-2 lg:grid-cols-3">
-            {[...Array(6)].map((_, i) => (
+            {[...Array(12)].map((_, i) => (
               <motion.div
                 key={i}
                 initial={{ opacity: 0, scale: 0.9 }}
@@ -1014,20 +1069,34 @@ export default function HomePage() {
               whileInView={{ opacity: 1, y: 0 }}
               viewport={{ once: true }}
               transition={{ duration: 0.6, delay: 0.5 }}
-              className="text-center mt-12"
+              className="text-center mt-12 space-y-4"
             >
-              <Button
-                size="lg"
-                className="rounded-full bg-gradient-to-r from-green-600 to-emerald-600 text-white px-8 py-4 text-lg font-semibold shadow-xl hover:shadow-green-500/25 hover:from-green-700 hover:to-emerald-700 transition-all duration-300"
-              >
-                <span className="flex items-center gap-2">
-                  <MessageCircle className="h-5 w-5" />
-                  すべての特典を無料で受け取る
-                  <ChevronRight className="h-5 w-5" />
-                </span>
-              </Button>
-              <p className="mt-4 text-sm text-slate-500">
-                Discord参加で全特典が即座ダウンロード可能
+              <div className="flex flex-col sm:flex-row gap-4 justify-center">
+                <Link href="/lead-magnets">
+                  <Button
+                    size="lg"
+                    className="rounded-full bg-gradient-to-r from-blue-600 to-purple-600 text-white px-6 sm:px-8 py-3 sm:py-4 text-base sm:text-lg font-semibold shadow-xl hover:shadow-blue-500/25 hover:from-blue-700 hover:to-purple-700 transition-all duration-300"
+                  >
+                    <span className="flex items-center gap-2">
+                      <BookOpen className="h-5 w-5" />
+                      リードマグネット一覧を見る
+                      <ChevronRight className="h-5 w-5" />
+                    </span>
+                  </Button>
+                </Link>
+                <Button
+                  size="lg"
+                  className="rounded-full bg-gradient-to-r from-green-600 to-emerald-600 text-white px-6 sm:px-8 py-3 sm:py-4 text-base sm:text-lg font-semibold shadow-xl hover:shadow-green-500/25 hover:from-green-700 hover:to-emerald-700 transition-all duration-300"
+                >
+                  <span className="flex items-center gap-2">
+                    <MessageCircle className="h-5 w-5" />
+                    Discordで無料受け取り
+                    <ChevronRight className="h-5 w-5" />
+                  </span>
+                </Button>
+              </div>
+              <p className="text-sm text-slate-500">
+                70,000円相当のリードマグネット完全セット
               </p>
             </motion.div>
           </>
@@ -1205,9 +1274,9 @@ export default function HomePage() {
             <div className="mb-6 mx-auto w-16 h-16 bg-blue-600 rounded-full flex items-center justify-center text-white text-2xl font-bold">
               1
             </div>
-            <h3 className="mb-4 text-xl font-bold text-slate-900">無料でDiscord参加</h3>
+            <h3 className="mb-4 text-xl font-bold text-slate-900">【無料】まずは雰囲気を確認</h3>
             <p className="text-slate-600 leading-relaxed">
-              クリックするだけでDiscordコミュニティに参加。特別なアカウント作成や資料請求は一切ありません。
+              「本当に安全なの？」と不安な方も大丈夫。クリックするだけでDiscordコミュニティを覗き見できます。クレカ登録や連絡先は一切不要です。
             </p>
           </motion.div>
 
@@ -1221,9 +1290,9 @@ export default function HomePage() {
             <div className="mb-6 mx-auto w-16 h-16 bg-green-600 rounded-full flex items-center justify-center text-white text-2xl font-bold">
               2
             </div>
-            <h3 className="mb-4 text-xl font-bold text-slate-900">特典資料を受け取り</h3>
+            <h3 className="mb-4 text-xl font-bold text-slate-900">「本当に稼げるの？」を確認</h3>
             <p className="text-slate-600 leading-relaxed">
-              18,000円相当の実証済みガイド集を即座でダウンロード。あなたの興味に合わせた手法を選んで学習。
+              「とりあえず情報だけでも」と思っていませんか？35,000円相当の実証済みガイドをダウンロードして、実際に稼げる内容かどうかご自身で判断してください。
             </p>
           </motion.div>
 
@@ -1237,9 +1306,9 @@ export default function HomePage() {
             <div className="mb-6 mx-auto w-16 h-16 bg-purple-600 rounded-full flex items-center justify-center text-white text-2xl font-bold">
               3
             </div>
-            <h3 className="mb-4 text-xl font-bold text-slate-900">仲間と一緒に実践</h3>
+            <h3 className="mb-4 text-xl font-bold text-slate-900">「一人だと続かない」を解決</h3>
             <p className="text-slate-600 leading-relaxed">
-              同じ目標を持つ仲間と励まし合いながら、楽しく副業スキルを身につけて月3万円を目指しましょう。
+              「いつも三日坊主」「本を買っただけで終わり」そんな経験ありませんか？同じような境遇の仲間と励まし合えば、無理なく続けられます。
             </p>
           </motion.div>
         </div>
@@ -1263,8 +1332,8 @@ export default function HomePage() {
             transition={{ duration: 0.6 }}
             className="mb-6 inline-flex items-center gap-2 rounded-full bg-gradient-to-r from-yellow-400/20 to-orange-400/20 border border-yellow-400/30 px-4 py-2 text-sm font-bold backdrop-blur-sm"
           >
-            <Sparkles className="h-4 w-4 text-yellow-400" />
-            限定特典！今だけのチャンス
+            <Shield className="h-4 w-4 text-yellow-400" />
+            まずは雰囲気を確認（7日無料）
           </motion.div>
           
           <motion.h2
@@ -1287,7 +1356,7 @@ export default function HomePage() {
             transition={{ duration: 0.6, delay: 0.4 }}
             className="mb-10 text-xl leading-relaxed text-blue-100 max-w-3xl mx-auto"
           >
-            2,800人が実証した手法で、あなたも今すぐAI副業を始められます。<br />
+            実証済みの現実的な手法で、あなたも今すぐAI副業を始められます。<br />
             <strong className="text-white">無料体験7日間</strong>で、まずは実際の雰囲気を体験してみてください。
           </motion.p>
 
@@ -1304,7 +1373,7 @@ export default function HomePage() {
             >
               <Button
                 size="lg"
-                className="rounded-full bg-gradient-to-r from-yellow-400 to-orange-500 text-slate-900 px-10 py-5 text-xl font-bold shadow-2xl hover:shadow-yellow-400/25 hover:from-yellow-300 hover:to-orange-400 transition-all duration-300 min-w-[320px]"
+                className="rounded-full bg-gradient-to-r from-yellow-400 to-orange-500 text-slate-900 px-6 sm:px-10 py-4 sm:py-5 text-lg sm:text-xl font-bold shadow-2xl hover:shadow-yellow-400/25 hover:from-yellow-300 hover:to-orange-400 transition-all duration-300 min-w-[280px] sm:min-w-[320px]"
               >
                 <span className="flex items-center gap-3">
                   <MessageCircle className="h-6 w-6" />
@@ -1338,7 +1407,7 @@ export default function HomePage() {
               </div>
               <div className="flex items-center gap-2">
                 <CheckCircle className="h-4 w-4 text-green-400" />
-                18,000円相当特典付
+                35,000円相当特典付
               </div>
             </div>
             <div className="text-xs text-blue-300">

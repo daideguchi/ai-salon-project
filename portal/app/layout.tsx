@@ -22,15 +22,15 @@ export const metadata: Metadata = {
   keywords: ['AI副業', '月3万円', '在宅ワーク', 'AIコミュニティ', 'ChatGPT', '動画生成', 'ブログ収益化', 'Kindle出版'],
   authors: [{ name: 'AI在宅ワーク研究所' }],
   openGraph: {
-    title: 'AI在宅ワーク研究所 - AIで月3万円稼ぐコミュニティ',
-    description: 'AI技術を活用して月3万円の副収入を自走して稼げるコミュニティ。2,800名以上が参加中！',
+    title: 'AI在宅ワーク研究所 - 誇張なしの現実的な月3万円コミュニティ',
+    description: '「月100万円」の誇張情報ではなく、失敗談も含めたリアルな体験を共有する誠実なコミュニティ。フェイク情報は完全排除します。',
     type: 'website',
     images: [{ url: '/og-image.png', width: 1200, height: 630 }],
   },
   twitter: {
     card: 'summary_large_image',
-    title: 'AI在宅ワーク研究所 - AIで月3万円稼ぐコミュニティ',
-    description: 'AI技術を活用して月3万円の副収入を自走して稼げるコミュニティ。2,800名以上が参加中！',
+    title: 'AI在宅ワーク研究所 - 誇張なしの現実的な月3万円コミュニティ',
+    description: '「月100万円」の誇張情報ではなく、失敗談も含めたリアルな体験を共有する誠実なコミュニティ。フェイク情報は完全排除します。',
   },
 }
 
