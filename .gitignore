@@ -90,3 +90,4 @@ coverage.xml
 
 # Documentation Build
 docs/_build/
+.vercel

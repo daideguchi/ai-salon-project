@@ -6,6 +6,7 @@ Next.js 14で構築されたリードマグネット配布ポータルサイト�
 
 - 🎁 **6つのリードマグネット配布**: AI動画、Kindle、ブログ、プロンプト集、ロードマップ、時間管理術
 - 🔐 **Discord認証システム**: メンバー限定特典アクセス
+- 📱 **LINE公式アカウント連携**: 自動応答・リッチメニュー・セグメント配信
 - 💎 **プレミアム機能**: 有料会員限定コンテンツ
 - 📊 **ダウンロード追跡**: 利用状況分析
 - 🎯 **JWT認証**: 24時間有効なセキュアリンク
@@ -22,6 +23,14 @@ SUPABASE_SECRET_KEY="your_actual_secret_key"
 JWT_SECRET="ai-salon-portal-jwt-secret-2025"
 NEXT_PUBLIC_SITE_URL="https://your-app.vercel.app"
 NEXT_PUBLIC_SITE_NAME="AI在宅ワーク研究所"
+
+# Discord (optional)
+DISCORD_BOT_TOKEN="your_discord_bot_token"
+
+# LINE公式アカウント
+LINE_CHANNEL_ACCESS_TOKEN="your_line_channel_access_token"
+LINE_CHANNEL_SECRET="your_line_channel_secret"
+LINE_RICH_MENU_ID="your_rich_menu_id"
 ```
 
 ### 2. Supabaseデータベース設定
@@ -29,7 +38,14 @@ NEXT_PUBLIC_SITE_NAME="AI在宅ワーク研究所"
 2. `scripts/create-supabase-tables.sql`の内容を実行
 3. テーブル作成・RLS設定・テストデータ挿入が完了
 
-### 3. Vercelデプロイ
+### 3. LINE公式アカウント設定
+1. [LINE Developers Console](https://developers.line.biz/console/) でMessaging APIチャンネル作成
+2. Channel Access Token と Channel Secret を取得
+3. Webhook URL: `https://your-app.vercel.app/api/line/webhook` を設定
+4. リッチメニュー作成: `node scripts/line-richmenu-setup.js create`
+5. 詳細設定: `docs/LINE_OFFICIAL_SETUP_GUIDE.md` を参照
+
+### 4. Vercelデプロイ
 1. GitHubリポジトリをVercelに接続
 2. Root Directoryを `portal` に設定
 3. Framework Preset: `Next.js`
