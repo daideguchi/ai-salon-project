@@ -347,12 +347,12 @@ export default function HomePage() {
           const mockLeadMagnets: LeadMagnet[] = [
             {
               id: '1',
-              title: 'AI動画生成で月3万円達成ガイド【失敗談付き・2025年版】',
-              description: '田中研究員が4ヶ月で月5万円を達成するまでの全記録。3回の失敗、試行錯誤、そしてブレイクスルーまでを赤裸々に公開。使用ツール、実際の収益グラフ、時間投資も全て記載。',
+              title: 'AI動画生成を学ぶ実践ガイド【試行錯誤の記録・2025年版】',
+              description: 'AIツールを使った動画制作を一から学んだ記録。最初は全然うまくいかない、ツールの使い方で悩む、どんなコンテンツを作ればいいか迷うなど、リアルな試行錯誤の過程を記録。使用ツール、学習時間、つまずいたポイントを詳しく解説。',
               download_url: '/downloads/ai-video-earnings-guide-2025.pdf',
               file_size: 4200000,
               download_count: 247,
-              tags: ['失敗談付き', '4ヶ月で達成', '時間投資記録'],
+              tags: ['試行錯誤記録', '初心者向け', '学習プロセス'],
               is_premium: false,
               is_active: true,
               created_at: '2025-08-10T10:00:00Z',
@@ -360,12 +360,12 @@ export default function HomePage() {
             },
             {
               id: '2',
-              title: '「文章なんて書けない」会社員が3ヶ月で月3.2万円【夜・週末のみ】',
-              description: '「国語は大嫌いだった」佐藤さん（会社員・28歳）が、平日は残業、週末は家族サービスの合間にコツコツと続けたブログ運営。ChatGPTを相棒に「中学生でもわかる文章」で着実に収益化。',
+              title: '「文章なんて書けない」会社員のブログ学習記録【夜・週末の学習】',
+              description: '「国語は苦手だった」会社員が、平日の夜と週末にコツコツとブログ運営を学んだ記録。ChatGPTの使い方から始まり、記事の書き方、SEOの基礎まで、初心者がつまずくポイントと解決方法を詳しく記録。',
               download_url: '/downloads/chatgpt-blog-seo-method.pdf',
               file_size: 5800000,
               download_count: 134,
-              tags: ['初心者からスタート', 'テンプレート付', '3ヶ月で達成'],
+              tags: ['初心者向け', 'ChatGPT活用', '学習記録'],
               is_premium: true,
               is_active: true,
               created_at: '2025-08-08T14:30:00Z',
@@ -466,7 +466,7 @@ export default function HomePage() {
           {
             id: '3',
             title: 'コミュニティの現状報告：みんなでこつこつ収入を伸ばし中',
-            summary: '研究所の2024年を振り返ってみました。247人のメンバーのうち、約73%の方が月3万円以上の副収入を達成。「思ったより時間がかかった」「最初は全然だめだった」など、リアルな体験談も多数。みんなで励まし合いながら続けています。',
+            summary: '研究所で活動するメンバーの皆さんに現状をお聞きしました。「思ったより時間がかかった」「最初は全然だめだった」「3ヶ月目でようやくコツが掴めた」など、リアルな体験談が集まっています。簡単ではないけれど、コツコツ続けている仲間同士で励まし合いながら頑張っています。',
             url: 'https://discord.gg/9u7KMyDM/success-report-2024',
             publishedAt: '2025-08-13T09:15:00Z',
             source: 'AI在宅ワーク研究所'
@@ -591,8 +591,8 @@ export default function HomePage() {
             transition={{ duration: 0.8, delay: 0.6 }}
             className="mb-8 text-lg leading-relaxed text-blue-100 sm:text-xl md:text-2xl max-w-4xl mx-auto px-4"
           >
-<strong className="text-yellow-400">「毎月のお小遣いが少し増えたらいいな」</strong><br />そんな会社員・主婦の方の正直な気持ちに応える、<br />
-            <strong className="text-white">現実的な月3万円コミュニティ</strong>です。
+<strong className="text-yellow-400">「AIって気になるけど、どう始めればいいの？」</strong><br />そんな会社員・主婦の方の疑問に真摯に向き合う、<br />
+            <strong className="text-white">堅実な学習コミュニティ</strong>です。
           </motion.p>
 
           <motion.div
@@ -603,21 +603,21 @@ export default function HomePage() {
           >
             <div className="rounded-xl bg-white/10 p-3 sm:p-4 backdrop-blur-sm border border-white/20">
               <div className="text-xl sm:text-2xl font-bold text-yellow-400 mb-1">
-                初心者歓迎
+                堅実な学習
               </div>
-              <div className="text-sm text-blue-200 font-medium">PC基本操作ができればOK</div>
+              <div className="text-sm text-blue-200 font-medium">簡単ではないが着実に</div>
             </div>
             <div className="rounded-xl bg-white/10 p-3 sm:p-4 backdrop-blur-sm border border-white/20">
               <div className="text-xl sm:text-2xl font-bold text-yellow-400 mb-1">
-                忙しくてもOK
+                現実的な目標
               </div>
-              <div className="text-sm text-blue-200 font-medium">スキマ時間で着実に</div>
+              <div className="text-sm text-blue-200 font-medium">努力すれば届く範囲で</div>
             </div>
             <div className="rounded-xl bg-white/10 p-3 sm:p-4 backdrop-blur-sm border border-white/20">
               <div className="text-xl sm:text-2xl font-bold text-yellow-400 mb-1">
-                家計にプラス
+                正直な情報
               </div>
-              <div className="text-sm text-blue-200 font-medium">月3万円の安心感</div>
+              <div className="text-sm text-blue-200 font-medium">失敗談も含めてリアルに</div>
             </div>
           </motion.div>
 
@@ -688,8 +688,8 @@ export default function HomePage() {
 
           <div className="text-center">
             <p className="text-slate-700 text-base md:text-lg leading-relaxed">
-              <span className="font-semibold text-slate-900">「副業に興味はあるけど、何か胡散臭い」</span>
-              そんな直感をお持ちではありませんか？「結局騙されちゃうんじゃ」という<strong className="font-semibold">心配をせず安心して参加できる</strong>コミュニティです。
+              <span className="font-semibold text-slate-900">「簡単に稼げるなんてウソでしょ？」</span>
+              その通りです。簡単に稼げる方法は存在しません。でも、<strong className="font-semibold">正しい方法でコツコツ続ければ結果は出せます</strong>。そんな現実的なアプローチを学べるコミュニティです。
             </p>
           </div>
 
@@ -698,9 +698,9 @@ export default function HomePage() {
               <Shield className="h-5 w-5 text-blue-600" />
               <div>
                 <div className="text-lg font-bold text-slate-900">
-                  初心者歓迎
+                  努力が前提
                 </div>
-                <div className="text-xs text-slate-600">PC基本操作ができればOK</div>
+                <div className="text-xs text-slate-600">楽ではないが学べば結果は出る</div>
               </div>
             </div>
 
@@ -708,17 +708,17 @@ export default function HomePage() {
               <Heart className="h-5 w-5 text-green-600" />
               <div>
                 <div className="text-lg font-bold text-slate-900">
-                  忙しくても続く
+                  時間はかかる
                 </div>
-                <div className="text-xs text-slate-600">スキマ時間で着実に</div>
+                <div className="text-xs text-slate-600">最低3-6ヶ月は覚悟する</div>
               </div>
             </div>
 
             <div className="flex items-center gap-3 rounded-xl bg-white/80 backdrop-blur p-4 border border-blue-200">
               <Target className="h-5 w-5 text-purple-600" />
               <div>
-                <div className="text-lg font-bold text-slate-900">家計にプラス</div>
-                <div className="text-xs text-slate-600">月3万円の安心感</div>
+                <div className="text-lg font-bold text-slate-900">現実的な目標</div>
+                <div className="text-xs text-slate-600">月100万ではなく月3万を目指す</div>
               </div>
             </div>
           </div>
@@ -773,7 +773,7 @@ export default function HomePage() {
         <div className="grid gap-8 md:grid-cols-2 lg:grid-cols-3">
           <FeatureCard
             icon={<Users className="h-6 w-6" />}
-            title="『一人だと挫折しちゃう』を解決"
+            title="『一人だと続かない』を解決"
             description="『YouTubeを見ても続かない』『本を買っただけで満足してしまう』そんな経験ありませんか？同じような境遇の会社員・主婦仲間と励まし合えば、楽しく続けられます。"
             delay={0}
           />
@@ -1015,7 +1015,7 @@ export default function HomePage() {
             className="mb-4 inline-flex items-center gap-2 rounded-full bg-gradient-to-r from-yellow-100 to-orange-100 border border-yellow-300 px-4 py-2 text-sm font-bold text-orange-700"
           >
             <Gift className="h-4 w-4" />
-            無料特典（35,000円相当）
+            無料実践ガイド集
           </motion.div>
           
           <motion.h2
@@ -1097,7 +1097,7 @@ export default function HomePage() {
                 </Link>
               </div>
               <p className="text-sm text-slate-500">
-                70,000円相当のリードマグネット完全セット
+実践的なガイド集をまとめて無料提供
               </p>
             </motion.div>
           </>
@@ -1293,7 +1293,7 @@ export default function HomePage() {
             </div>
             <h3 className="mb-4 text-xl font-bold text-slate-900">「本当に稼げるの？」を確認</h3>
             <p className="text-slate-600 leading-relaxed">
-              「とりあえず情報だけでも」と思っていませんか？35,000円相当の実証済みガイドをダウンロードして、実際に稼げる内容かどうかご自身で判断してください。
+              「とりあえず情報だけでも」と思っていませんか？実践的なガイド集をダウンロードして、実際に役立ちそうな内容かどうかご自身で判断してください。
             </p>
           </motion.div>
 
@@ -1394,7 +1394,7 @@ export default function HomePage() {
               </div>
               <div className="flex items-center gap-2">
                 <CheckCircle className="h-4 w-4 text-green-400" />
-                35,000円相当特典付
+実践ガイド特典付
               </div>
             </div>
             <div className="text-xs text-blue-300">
