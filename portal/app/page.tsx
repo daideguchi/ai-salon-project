@@ -940,6 +940,157 @@ export default function HomePage() {
         </div>
       </motion.section>
 
+      {/* Realistic Roadmap Section */}
+      <motion.section
+        id="roadmap"
+        initial={{ opacity: 0 }}
+        whileInView={{ opacity: 1 }}
+        viewport={{ once: true }}
+        transition={{ duration: 0.8 }}
+        className="space-y-16"
+      >
+        <div className="text-center">
+          <motion.div
+            initial={{ opacity: 0, y: 30 }}
+            whileInView={{ opacity: 1, y: 0 }}
+            viewport={{ once: true }}
+            transition={{ duration: 0.6 }}
+            className="mb-4 inline-flex items-center gap-2 rounded-full bg-green-100 px-4 py-2 text-sm font-medium text-green-700"
+          >
+            <Target className="h-4 w-4" />
+            具体的ロードマップ
+          </motion.div>
+          
+          <motion.h2
+            initial={{ opacity: 0, y: 30 }}
+            whileInView={{ opacity: 1, y: 0 }}
+            viewport={{ once: true }}
+            transition={{ duration: 0.6, delay: 0.2 }}
+            className="mb-4 text-4xl font-bold text-slate-900 font-inter"
+          >
+            AIを使って
+            <span className="text-green-600">YouTubeで堅実に稼ぐ</span>
+            <br />6ヶ月間のロードマップ
+          </motion.h2>
+          
+          <motion.p
+            initial={{ opacity: 0, y: 30 }}
+            whileInView={{ opacity: 1, y: 0 }}
+            viewport={{ once: true }}
+            transition={{ duration: 0.6, delay: 0.4 }}
+            className="mx-auto max-w-3xl text-lg text-slate-600"
+          >
+            <strong>「簡単に稼げる方法は存在しません。」</strong>でも、正しい手順でコツコツ続けることで、
+            <br />AIを活用したYouTube運営で収益化は可能です。現実的な6ヶ月プランをご紹介します。
+          </motion.p>
+        </div>
+
+        <div className="grid gap-8 md:grid-cols-2 lg:grid-cols-3">
+          <motion.div
+            initial={{ opacity: 0, y: 50 }}
+            whileInView={{ opacity: 1, y: 0 }}
+            viewport={{ once: true }}
+            transition={{ duration: 0.6, delay: 0.1 }}
+            className="bg-gradient-to-br from-blue-50 to-indigo-100 rounded-2xl p-6 border border-blue-200"
+          >
+            <div className="text-center mb-4">
+              <div className="w-12 h-12 bg-blue-600 rounded-full flex items-center justify-center text-white text-xl font-bold mx-auto mb-3">
+                1-2
+              </div>
+              <h3 className="text-xl font-bold text-slate-900">基礎学習期間（1-2ヶ月目）</h3>
+              <div className="text-sm text-blue-600 font-medium mt-2">まずはツールに慣れる</div>
+            </div>
+            <ul className="text-slate-700 text-sm space-y-2">
+              <li>• YouTubeの基本的な仕組みを理解</li>
+              <li>• AIツール（ChatGPT、Canva、Clipchampなど）の使い方をマスター</li>
+              <li>• 動画編集の基本を覚える</li>
+              <li>• チャンネルのテーマを決める</li>
+              <li>• <strong>この段階では収益はほぼゼロ</strong></li>
+            </ul>
+          </motion.div>
+
+          <motion.div
+            initial={{ opacity: 0, y: 50 }}
+            whileInView={{ opacity: 1, y: 0 }}
+            viewport={{ once: true }}
+            transition={{ duration: 0.6, delay: 0.2 }}
+            className="bg-gradient-to-br from-orange-50 to-yellow-100 rounded-2xl p-6 border border-orange-200"
+          >
+            <div className="text-center mb-4">
+              <div className="w-12 h-12 bg-orange-600 rounded-full flex items-center justify-center text-white text-xl font-bold mx-auto mb-3">
+                3-4
+              </div>
+              <h3 className="text-xl font-bold text-slate-900">コンテンツ作成期間（3-4ヶ月目）</h3>
+              <div className="text-sm text-orange-600 font-medium mt-2">量をこなして慣れる</div>
+            </div>
+            <ul className="text-slate-700 text-sm space-y-2">
+              <li>• 週2-3本のペースで動画投稿</li>
+              <li>• AIでタイトルやサムネイルを最適化</li>
+              <li>• 視聴者の反応を分析して改善</li>
+              <li>• チャンネル登録者1000人を目指す</li>
+              <li>• <strong>月収数百円〜数千円程度</strong></li>
+            </ul>
+          </motion.div>
+
+          <motion.div
+            initial={{ opacity: 0, y: 50 }}
+            whileInView={{ opacity: 1, y: 0 }}
+            viewport={{ once: true }}
+            transition={{ duration: 0.6, delay: 0.3 }}
+            className="bg-gradient-to-br from-green-50 to-emerald-100 rounded-2xl p-6 border border-green-200"
+          >
+            <div className="text-center mb-4">
+              <div className="w-12 h-12 bg-green-600 rounded-full flex items-center justify-center text-white text-xl font-bold mx-auto mb-3">
+                5-6
+              </div>
+              <h3 className="text-xl font-bold text-slate-900">収益化期間（5-6ヶ月目）</h3>
+              <div className="text-sm text-green-600 font-medium mt-2">ようやく収益が見えてくる</div>
+            </div>
+            <ul className="text-slate-700 text-sm space-y-2">
+              <li>• AdSense収益化条件をクリア</li>
+              <li>• 企業案件やアフィリエイトを検討</li>
+              <li>• AIを活用した効率的な動画制作</li>
+              <li>• コミュニティ機能で視聴者と交流</li>
+              <li>• <strong>月収1-3万円が現実的な目標</strong></li>
+            </ul>
+          </motion.div>
+        </div>
+
+        <motion.div
+          initial={{ opacity: 0, y: 30 }}
+          whileInView={{ opacity: 1, y: 0 }}
+          viewport={{ once: true }}
+          transition={{ duration: 0.6, delay: 0.5 }}
+          className="bg-gradient-to-r from-red-50 to-pink-50 rounded-2xl p-8 border border-red-200 text-center"
+        >
+          <h3 className="text-2xl font-bold text-slate-900 mb-4">
+            <span className="text-red-600">重要：</span>現実的な期待値を持つことが成功の鍵
+          </h3>
+          <div className="grid md:grid-cols-2 gap-6 text-left">
+            <div>
+              <h4 className="font-bold text-red-700 mb-3">❌ 現実的ではない期待</h4>
+              <ul className="text-slate-700 text-sm space-y-1">
+                <li>• 1ヶ月目から月10万円稼げる</li>
+                <li>• AIが全部自動でやってくれる</li>
+                <li>• 週1本の投稿で大丈夫</li>
+                <li>• 特別なスキルは一切不要</li>
+                <li>• 失敗することはない</li>
+              </ul>
+            </div>
+            <div>
+              <h4 className="font-bold text-green-700 mb-3">✅ 現実的な期待</h4>
+              <ul className="text-slate-700 text-sm space-y-1">
+                <li>• 最低6ヶ月は収益化に時間がかかる</li>
+                <li>• AIは補助ツール、最終的には自分で判断</li>
+                <li>• 継続的な投稿と改善が必要</li>
+                <li>• 基本的なPCスキルと学習意欲は必要</li>
+                <li>• 試行錯誤と失敗から学ぶ姿勢が重要</li>
+              </ul>
+            </div>
+          </div>
+        </motion.div>
+      </motion.section>
+
       {/* Research Principles Section */}
       <motion.section
         id="principles"
