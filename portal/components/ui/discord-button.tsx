@@ -25,7 +25,7 @@ export const DiscordButton: React.FC<DiscordButtonProps> = ({
   showIcon = true,
   className = '',
   children,
-  inviteUrl = 'https://discord.gg/ai-salon',
+  inviteUrl = 'https://discord.gg/9u7KMyDM',
   trackingId
 }) => {
   const [isHovered, setIsHovered] = useState(false)

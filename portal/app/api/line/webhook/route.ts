@@ -83,7 +83,7 @@ function processMessage(text: string): any[] {
   if (lowerText.includes('discord') || lowerText.includes('ディスコード') || lowerText.includes('コミュニティ')) {
     return [{
       type: 'text',
-      text: '💬 Discordコミュニティはこちら！\n\n🔗 参加URL: https://discord.gg/ai-salon\n\n👥 2,800人の仲間と一緒に学べます\n✅ 無料参加OK\n✅ 24時間質問可能\n✅ 成功事例の共有\n\n🚀 今すぐ参加して、AI副業を始めましょう！'
+      text: '💬 Discordコミュニティはこちら！\n\n🔗 参加URL: https://discord.gg/9u7KMyDM\n\n👥 2,800人の仲間と一緒に学べます\n✅ 無料参加OK\n✅ 24時間質問可能\n✅ 成功事例の共有\n\n🚀 今すぐ参加して、AI副業を始めましょう！'
     }]
   }
 
@@ -115,7 +115,7 @@ function processMessage(text: string): any[] {
   if (lowerText.includes('質問') || lowerText.includes('相談') || lowerText.includes('わからない') || lowerText.includes('困った')) {
     return [{
       type: 'text',
-      text: '📞 質問・相談について\n\n💬 Discordコミュニティでの質問がおすすめです：\n🔗 https://discord.gg/ai-salon\n\n【よくある質問】\n❓ 初心者でも大丈夫？ → はい！中学生でもわかる内容です\n❓ 本当に月3万円稼げる？ → 94%の方が達成（継続が前提）\n❓ どの手法がおすすめ？ → ブログ副業が始めやすいです\n❓ 時間はどのくらい必要？ → 週5-10時間程度\n\n🤝 仲間がいるので、一人で悩まず質問してくださいね！'
+      text: '📞 質問・相談について\n\n💬 Discordコミュニティでの質問がおすすめです：\n🔗 https://discord.gg/9u7KMyDM\n\n【よくある質問】\n❓ 初心者でも大丈夫？ → はい！中学生でもわかる内容です\n❓ 本当に月3万円稼げる？ → 94%の方が達成（継続が前提）\n❓ どの手法がおすすめ？ → ブログ副業が始めやすいです\n❓ 時間はどのくらい必要？ → 週5-10時間程度\n\n🤝 仲間がいるので、一人で悩まず質問してくださいね！'
     }]
   }
 

@@ -451,7 +451,7 @@ export default function HomePage() {
             id: '1',
             title: 'Sora一般公開で動画作成に変化あり？山田さんの素直な体験レポート',
             summary: 'OpenAIのSoraが公開されたので、メンバーの山田さんが実際に試してみました。「思ったより簡単ではない」「既存の手法とどちらが良いか迷う」という率直な感想をコミュニティでシェア。みんなで情報交換中です。',
-            url: 'https://discord.gg/ai-salon/sora-update',
+            url: 'https://discord.gg/9u7KMyDM/sora-update',
             publishedAt: '2025-08-15T10:00:00Z',
             source: 'AI在宅ワーク研究所'
           },
@@ -459,7 +459,7 @@ export default function HomePage() {
             id: '2',
             title: '佐藤さんのClaude 3.5体験記：ブログの書き方が少し変わったかも',
             summary: 'メンバーの佐藤さんがClaude 3.5を試してみた感想をシェア。「文章の自然さが上がったけど、効果はまだよくわからない」「最初は設定に苦戦した」など、リアルな体験談。ChatGPTとの使い分けも模索中です。',
-            url: 'https://discord.gg/ai-salon/claude-blog-success',
+            url: 'https://discord.gg/9u7KMyDM/claude-blog-success',
             publishedAt: '2025-08-14T15:30:00Z',
             source: 'AI在宅ワーク研究所'
           },
@@ -467,7 +467,7 @@ export default function HomePage() {
             id: '3',
             title: 'コミュニティの現状報告：みんなでこつこつ収入を伸ばし中',
             summary: '研究所の2024年を振り返ってみました。247人のメンバーのうち、約73%の方が月3万円以上の副収入を達成。「思ったより時間がかかった」「最初は全然だめだった」など、リアルな体験談も多数。みんなで励まし合いながら続けています。',
-            url: 'https://discord.gg/ai-salon/success-report-2024',
+            url: 'https://discord.gg/9u7KMyDM/success-report-2024',
             publishedAt: '2025-08-13T09:15:00Z',
             source: 'AI在宅ワーク研究所'
           }

@@ -570,7 +570,7 @@ DALL-E 3で生成するためのプロンプトを作成してください。
               </p>
               
               <div className="flex flex-col sm:flex-row gap-4 justify-center items-center mb-6">
-                <Link href="https://discord.gg/ai-salon" target="_blank">
+                <Link href="https://discord.gg/9u7KMyDM" target="_blank">
                   <Button 
                     size="lg"
                     className="w-full sm:w-auto rounded-full bg-gradient-to-r from-purple-600 to-blue-600 text-white px-8 py-4 text-lg font-semibold shadow-xl hover:shadow-purple-500/25 hover:from-purple-700 hover:to-blue-700 transition-all duration-300"
