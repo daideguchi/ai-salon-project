@@ -3,7 +3,7 @@
  * AI副業サロン用のリッチメニューを自動生成・設定します
  */
 
-require('dotenv').config()
+require('dotenv').config({ path: '.env.local' })
 
 const LINE_CHANNEL_ACCESS_TOKEN = process.env.LINE_CHANNEL_ACCESS_TOKEN
 

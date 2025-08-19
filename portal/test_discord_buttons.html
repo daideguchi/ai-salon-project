@@ -1,0 +1,236 @@
+<!DOCTYPE html>
+<html lang="ja">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Discord ボタン機能テスト</title>
+    <style>
+        body {
+            font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', 'Roboto', sans-serif;
+            margin: 0;
+            padding: 20px;
+            background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
+            color: white;
+            min-height: 100vh;
+        }
+        .container {
+            max-width: 800px;
+            margin: 0 auto;
+            background: rgba(255, 255, 255, 0.1);
+            backdrop-filter: blur(10px);
+            border-radius: 20px;
+            padding: 40px;
+            box-shadow: 0 20px 40px rgba(0, 0, 0, 0.3);
+        }
+        h1 {
+            text-align: center;
+            margin-bottom: 30px;
+            font-size: 2.5rem;
+            text-shadow: 2px 2px 4px rgba(0, 0, 0, 0.5);
+        }
+        .test-section {
+            margin-bottom: 40px;
+            padding: 20px;
+            background: rgba(255, 255, 255, 0.1);
+            border-radius: 15px;
+            border: 1px solid rgba(255, 255, 255, 0.2);
+        }
+        .test-button {
+            display: inline-block;
+            background: linear-gradient(45deg, #FF6B6B, #4ECDC4);
+            color: white;
+            padding: 12px 24px;
+            border-radius: 25px;
+            text-decoration: none;
+            font-weight: bold;
+            margin: 10px;
+            transition: all 0.3s ease;
+            box-shadow: 0 4px 15px rgba(0, 0, 0, 0.2);
+        }
+        .test-button:hover {
+            transform: translateY(-2px);
+            box-shadow: 0 6px 20px rgba(0, 0, 0, 0.3);
+        }
+        .status-indicator {
+            display: inline-block;
+            width: 12px;
+            height: 12px;
+            border-radius: 50%;
+            margin-left: 10px;
+        }
+        .status-success { background-color: #4CAF50; }
+        .status-error { background-color: #f44336; }
+        .status-pending { background-color: #ff9800; }
+        .server-info {
+            background: rgba(0, 255, 0, 0.1);
+            border: 1px solid rgba(0, 255, 0, 0.3);
+            padding: 15px;
+            border-radius: 10px;
+            margin-bottom: 20px;
+        }
+        .instructions {
+            background: rgba(255, 255, 255, 0.1);
+            padding: 20px;
+            border-radius: 10px;
+            margin-bottom: 30px;
+        }
+        .page-link {
+            background: linear-gradient(45deg, #667eea, #764ba2);
+            color: white;
+            padding: 15px 30px;
+            border-radius: 10px;
+            text-decoration: none;
+            display: inline-block;
+            margin: 10px;
+            font-weight: bold;
+            box-shadow: 0 4px 15px rgba(0, 0, 0, 0.2);
+        }
+        .page-link:hover {
+            transform: translateY(-2px);
+            box-shadow: 0 6px 20px rgba(0, 0, 0, 0.3);
+        }
+    </style>
+</head>
+<body>
+    <div class="container">
+        <h1>🤖 Discord ボタン機能テスト</h1>
+        
+        <div class="server-info">
+            <h3>🌐 開発サーバー情報</h3>
+            <p><strong>URL:</strong> <a href="http://localhost:3002" target="_blank" style="color: #4ECDC4;">http://localhost:3002</a></p>
+            <p><strong>ステータス:</strong> 稼働中 <span class="status-indicator status-success"></span></p>
+            <p><strong>Discord URL:</strong> https://discord.gg/ai-salon (実際のサーバー)</p>
+        </div>
+
+        <div class="instructions">
+            <h3>📋 テスト手順</h3>
+            <ol>
+                <li>下記のページリンクをクリックして各ページにアクセス</li>
+                <li>各ページでDiscordボタンをクリック</li>
+                <li>新しいタブでDiscordが開くことを確認</li>
+                <li>正常に動作すれば ✅、問題があれば ❌ を記録</li>
+            </ol>
+        </div>
+
+        <div class="test-section">
+            <h3>🏠 メインページテスト</h3>
+            <a href="http://localhost:3002" target="_blank" class="page-link">
+                🏠 メインページを開く
+            </a>
+            <div style="margin-top: 15px;">
+                <strong>確認項目:</strong>
+                <ul>
+                    <li>Header の「💬 Discordで参加」ボタン</li>
+                    <li>Hero Section の「Discordを見てみる」ボタン</li>
+                    <li>Lead Magnets Section の「Discordで無料受け取り」ボタン</li>
+                    <li>Final CTA の「今すぐDiscordで無料参加」ボタン</li>
+                </ul>
+            </div>
+        </div>
+
+        <div class="test-section">
+            <h3>📚 リードマグネットページテスト</h3>
+            <a href="http://localhost:3002/lead-magnets" target="_blank" class="page-link">
+                📚 リードマグネットページを開く
+            </a>
+            <div style="margin-top: 15px;">
+                <strong>確認項目:</strong>
+                <ul>
+                    <li>Header の「💬 Discordで参加」ボタン</li>
+                    <li>各リードマグネットカードの「DL」→「Discordで受け取り」ボタン</li>
+                </ul>
+            </div>
+        </div>
+
+        <div class="test-section">
+            <h3>⚙️ 管理画面テスト</h3>
+            <a href="http://localhost:3002/admin" target="_blank" class="page-link">
+                ⚙️ 管理画面を開く
+            </a>
+            <div style="margin-top: 15px;">
+                <strong>確認項目:</strong>
+                <ul>
+                    <li>Header の「💬 Discordで参加」ボタン</li>
+                </ul>
+            </div>
+        </div>
+
+        <div class="test-section">
+            <h3>🧪 直接Discord URLテスト</h3>
+            <a href="https://discord.gg/openai" target="_blank" class="test-button">
+                🔗 Discord URL を直接テスト
+            </a>
+            <div style="margin-top: 15px;">
+                <strong>確認項目:</strong>
+                <ul>
+                    <li>正常にDiscordが開く</li>
+                    <li>OpenAI Discordサーバーが表示される</li>
+                </ul>
+            </div>
+        </div>
+
+        <div class="test-section">
+            <h3>📝 テスト結果記録</h3>
+            <div style="background: rgba(255, 255, 255, 0.1); padding: 20px; border-radius: 10px;">
+                <h4>テスト結果チェックリスト:</h4>
+                <label style="display: block; margin: 10px 0;">
+                    <input type="checkbox"> ✅ Header Discordボタン (全ページ)
+                </label>
+                <label style="display: block; margin: 10px 0;">
+                    <input type="checkbox"> ✅ Hero Section Discordボタン (メインページ)
+                </label>
+                <label style="display: block; margin: 10px 0;">
+                    <input type="checkbox"> ✅ Lead Magnets Section Discordボタン (メインページ)
+                </label>
+                <label style="display: block; margin: 10px 0;">
+                    <input type="checkbox"> ✅ Final CTA Discordボタン (メインページ)
+                </label>
+                <label style="display: block; margin: 10px 0;">
+                    <input type="checkbox"> ✅ Lead Magnets Page Discordボタン (ドロップダウン)
+                </label>
+                <label style="display: block; margin: 10px 0;">
+                    <input type="checkbox"> ✅ 直接Discord URL テスト
+                </label>
+            </div>
+        </div>
+
+        <div style="text-align: center; margin-top: 40px;">
+            <p><strong>🎯 全てのボタンが正常に動作すれば Discord ボタン機能テスト完了！</strong></p>
+            <a href="http://localhost:3002" target="_blank" class="test-button" style="font-size: 1.2rem;">
+                🚀 今すぐテスト開始
+            </a>
+        </div>
+    </div>
+
+    <script>
+        // ページロード時にサーバーステータスをチェック
+        window.onload = function() {
+            fetch('http://localhost:3002')
+                .then(response => {
+                    if (response.ok) {
+                        console.log('✅ 開発サーバーは正常に稼働中');
+                    } else {
+                        console.log('⚠️ 開発サーバーの応答に問題があります');
+                    }
+                })
+                .catch(error => {
+                    console.log('❌ 開発サーバーに接続できません:', error);
+                });
+        };
+
+        // チェックボックスの状態を保存
+        const checkboxes = document.querySelectorAll('input[type="checkbox"]');
+        checkboxes.forEach(checkbox => {
+            checkbox.addEventListener('change', function() {
+                const completed = Array.from(checkboxes).filter(cb => cb.checked).length;
+                const total = checkboxes.length;
+                const progress = Math.round((completed / total) * 100);
+                
+                if (progress === 100) {
+                    alert('🎉 おめでとうございます！全てのDiscordボタンテストが完了しました！');
+                }
+            });
+        });
+    </script>
+</body>
+</html>

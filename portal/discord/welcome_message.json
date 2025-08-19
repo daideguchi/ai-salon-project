@@ -1,0 +1,30 @@
+{
+  "embeds": [
+    {
+      "title": "🤖 AI在宅ワーク研究所へようこそ！",
+      "description": "AI技術を活用して月3万円の副収入を目指すコミュニティです。",
+      "color": 3447003,
+      "fields": [
+        {
+          "name": "📚 まずはこちらから",
+          "value": "• <#welcome-and-rules> でルールを確認\n• <#goal-setting> で目標を設定\n• <#introduce-yourself> で自己紹介",
+          "inline": false
+        },
+        {
+          "name": "🎯 コミュニティの特徴",
+          "value": "• 誇張なし・現実的な手法のみ\n• 失敗談も含めた正直な情報共有\n• 月3万円の現実的な目標設定",
+          "inline": false
+        },
+        {
+          "name": "💡 始め方",
+          "value": "興味のある分野のチャンネルを覗いてみてください！\n質問があれば <#help-and-questions> でお気軽にどうぞ。",
+          "inline": false
+        }
+      ],
+      "footer": {
+        "text": "AI在宅ワーク研究所 - 誠実な情報共有コミュニティ"
+      },
+      "timestamp": "2025-08-19T02:09:28.738Z"
+    }
+  ]
+}

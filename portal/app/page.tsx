@@ -7,6 +7,7 @@ import Link from 'next/link'
 import { supabase, type LeadMagnet } from '@/lib/supabase'
 import { Button } from '@/components/ui/button'
 import { Calendar, Download, Users, TrendingUp, Brain, Target, Lightbulb, ChevronRight, Gift, Star, Zap, Newspaper, BookOpen, ExternalLink, Clock, ArrowRight, MessageCircle, Video, PenTool, DollarSign, CheckCircle, Award, Shield, Heart, Sparkles, Rocket } from 'lucide-react'
+import { DiscordViewButton, DiscordDownloadButton, DiscordHeroButton } from '@/components/ui/discord-button'
 
 interface AnimatedCounterProps {
   targetValue: number
@@ -647,18 +648,7 @@ export default function HomePage() {
               </Button>
             </motion.div>
             
-            <Link href="https://discord.gg/ai-salon" target="_blank">
-              <Button
-                variant="outline"
-                size="lg"
-                className="rounded-full border-white/30 bg-white/10 text-white px-4 sm:px-6 py-3 sm:py-4 text-base sm:text-lg font-semibold backdrop-blur-sm hover:bg-white/20 hover:border-white/50 transition-all duration-300"
-              >
-                <span className="flex items-center gap-2">
-                  <MessageCircle className="h-5 w-5" />
-                  Discordを見てみる
-                </span>
-              </Button>
-            </Link>
+            <DiscordViewButton className="px-4 sm:px-6 py-3 sm:py-4 text-base sm:text-lg" />
           </motion.div>
           
           <motion.div
@@ -1092,18 +1082,7 @@ export default function HomePage() {
                     </span>
                   </Button>
                 </Link>
-                <Link href="https://discord.gg/ai-salon" target="_blank">
-                  <Button
-                    size="lg"
-                    className="rounded-full bg-gradient-to-r from-green-600 to-emerald-600 text-white px-6 sm:px-8 py-3 sm:py-4 text-base sm:text-lg font-semibold shadow-xl hover:shadow-green-500/25 hover:from-green-700 hover:to-emerald-700 transition-all duration-300"
-                  >
-                    <span className="flex items-center gap-2">
-                      <MessageCircle className="h-5 w-5" />
-                      Discordで無料受け取り
-                      <ChevronRight className="h-5 w-5" />
-                    </span>
-                  </Button>
-                </Link>
+                <DiscordDownloadButton className="px-6 sm:px-8 py-3 sm:py-4 text-base sm:text-lg" />
                 <Link href="https://line.me/R/ti/p/@ai-salon" target="_blank">
                   <Button
                     size="lg"
@@ -1393,23 +1372,7 @@ export default function HomePage() {
               variants={pulseVariants}
               animate="pulse"
             >
-              <Link href="https://discord.gg/ai-salon" target="_blank">
-                <Button
-                  size="lg"
-                  className="rounded-full bg-gradient-to-r from-yellow-400 to-orange-500 text-slate-900 px-6 sm:px-10 py-4 sm:py-5 text-lg sm:text-xl font-bold shadow-2xl hover:shadow-yellow-400/25 hover:from-yellow-300 hover:to-orange-400 transition-all duration-300 min-w-[280px] sm:min-w-[320px]"
-                >
-                  <span className="flex items-center gap-3">
-                    <MessageCircle className="h-6 w-6" />
-                    今すぐDiscordで無料参加
-                    <motion.div
-                      animate={{ x: [0, 6, 0] }}
-                      transition={{ repeat: Infinity, duration: 1.5, ease: "easeInOut" }}
-                    >
-                      <ChevronRight className="h-6 w-6" />
-                    </motion.div>
-                  </span>
-                </Button>
-              </Link>
+              <DiscordHeroButton className="min-w-[280px] sm:min-w-[320px]" />
             </motion.div>
           </motion.div>
 

@@ -1,0 +1,75 @@
+{
+  "timestamp": "2025-08-18T05:12:56.687Z",
+  "environment": {
+    "success": false,
+    "missing": [
+      "LINE_CHANNEL_ACCESS_TOKEN",
+      "LINE_CHANNEL_SECRET",
+      "NEXT_PUBLIC_SUPABASE_URL",
+      "NEXT_PUBLIC_SUPABASE_ANON_KEY"
+    ],
+    "present": [],
+    "envVars": {
+      "# AI在宅ワーク研究所 ポータルサイト環境変数\n\n# Supabase設定（クライアントサイド用）\nNEXT_PUBLIC_SUPABASE_URL": "https://gfuuybvyunfbuvsfogid.supabase.co\"\nNEXT_PUBLIC_SUPABASE_ANON_KEY=\"eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpc3MiOiJzdXBhYmFzZSIsInJlZiI6ImdmdXV5YnZ5dW5mYnV2c2ZvZ2lkIiwicm9sZSI6ImFub24iLCJpYXQiOjE3NTUyMDA0MjcsImV4cCI6MjA3MDc3NjQyN30.fyW-2YSKbdGfIlPO1H0yJUaDtwJKGK68h7Kfv7hKpsY\"\n\n# サーバーサイド専用設定\nSUPABASE_SECRET_KEY=\"your_supabase_secret_key_here\"\nJWT_SECRET=\"ai-salon-portal-jwt-secret-2025\"\n\n# LINE公式アカウント設定 - 実際の値を設定\nLINE_CHANNEL_ACCESS_TOKEN=\"05G8Pj9IIiCgkyk2Sdw9+4qRkr7Sz738hutjllokRB1fOIwFOXCm9AbV9KzW4zFzfMlyCqfacwkyAuQRM7cS65vpsE+XdOSbA/J8z0uFfXrN9o3FKwlcNr1OlR8GHvTR9Qc5pQ7hTVoBYFGEW9KiZwdB04t89/1O/w1cDnyilFU=\"\nLINE_CHANNEL_SECRET=\"e1f838d7d10ce5b82bda4d69bf5cac9d\"\nLINE_RICH_MENU_ID=\"\"\n\n# Discord Bot Token (optional - for user verification)\nDISCORD_BOT_TOKEN=\"\"\n\n# Next.js Configuration\nNEXT_PUBLIC_SITE_URL=\"https://portal-ir60ihqni-daideguchis-projects.vercel.app\"\nNEXT_PUBLIC_SITE_NAME=\"AI在宅ワーク研究所"
+    }
+  },
+  "richMenu": {
+    "success": false
+  },
+  "webhook": {
+    "success": false,
+    "error": "Command failed: node \"/Users/dd/Desktop/1_dev/ai-salon-project/portal/scripts/test-line-webhook.js\" --json"
+  },
+  "development": {
+    "success": true,
+    "packageJson": {
+      "name": "ai-salon-portal",
+      "version": "1.0.0",
+      "private": true,
+      "scripts": {
+        "dev": "next dev -p 3001",
+        "build": "next build",
+        "start": "next start -p 3001",
+        "lint": "next lint"
+      },
+      "dependencies": {
+        "@radix-ui/react-dialog": "^1.1.15",
+        "@radix-ui/react-icons": "^1.3.2",
+        "@radix-ui/react-label": "^2.1.7",
+        "@radix-ui/react-select": "^2.2.6",
+        "@radix-ui/react-slot": "^1.2.3",
+        "@radix-ui/react-toast": "^1.2.15",
+        "@supabase/supabase-js": "^2.45.4",
+        "class-variance-authority": "^0.7.1",
+        "clsx": "^2.1.1",
+        "discord.js": "^14.21.0",
+        "dotenv": "^17.2.1",
+        "framer-motion": "^12.23.12",
+        "jose": "^5.2.4",
+        "lucide-react": "^0.539.0",
+        "next": "^15.4.6",
+        "react": "^19.1.1",
+        "react-dom": "^19.1.1",
+        "tailwind-merge": "^3.3.1",
+        "uuid": "^9.0.1",
+        "zlib-sync": "^0.1.10",
+        "zod": "^3.23.8"
+      },
+      "devDependencies": {
+        "@types/node": "^20.11.30",
+        "@types/react": "^19.1.10",
+        "@types/react-dom": "^19.1.7",
+        "@types/uuid": "^9.0.8",
+        "autoprefixer": "^10.4.21",
+        "postcss": "^8.5.6",
+        "tailwindcss": "^3.4.17",
+        "typescript": "^5.5.4"
+      }
+    }
+  },
+  "recommendations": [
+    "環境変数を設定してください",
+    "リッチメニューを手動で設定してください",
+    "Webhook URLを確認してください"
+  ]
+}

@@ -3,6 +3,7 @@ import { Inter, Noto_Sans_JP } from 'next/font/google'
 import './globals.css'
 import { Toaster } from '@/components/ui/toaster'
 import Link from 'next/link'
+import { DiscordJoinButton } from '@/components/ui/discord-button'
 
 const inter = Inter({ 
   subsets: ['latin'],
@@ -60,13 +61,9 @@ export default function RootLayout({
                   <Link href="/" className="px-4 py-2 text-sm font-medium text-slate-600 hover:text-blue-600 hover:bg-blue-50 rounded-lg transition-all duration-200">ホーム</Link>
                   <Link href="#community" className="px-4 py-2 text-sm font-medium text-slate-600 hover:text-blue-600 hover:bg-blue-50 rounded-lg transition-all duration-200">コミュニティ</Link>
                   <Link href="#benefits" className="px-4 py-2 text-sm font-medium text-slate-600 hover:text-blue-600 hover:bg-blue-50 rounded-lg transition-all duration-200">参加メリット</Link>
-                  <Link 
-                    href="https://discord.gg/ai-salon" 
-                    target="_blank"
-                    className="ml-3 inline-flex items-center gap-2 rounded-xl bg-gradient-to-r from-blue-600 to-purple-600 px-4 py-2 text-sm font-semibold text-white shadow-lg hover:shadow-xl hover:from-blue-700 hover:to-purple-700 transition-all duration-200"
-                  >
-                    💬 Discordで参加
-                  </Link>
+                  <div className="ml-3">
+                    <DiscordJoinButton className="text-sm px-4 py-2" />
+                  </div>
                 </div>
               </nav>
             </header>

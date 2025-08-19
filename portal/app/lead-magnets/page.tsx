@@ -6,6 +6,7 @@ import { Card, CardContent, CardDescription, CardHeader, CardTitle } from '@/com
 import { Badge } from '@/components/ui/badge'
 import { Button } from '@/components/ui/button'
 import { BookOpen, Download, Eye, FileText, Users, TrendingUp, Brain, Settings, Rocket, MessageCircle } from 'lucide-react'
+import { DiscordDownloadButton } from '@/components/ui/discord-button'
 
 interface LeadMagnet {
   id: string
@@ -55,6 +56,17 @@ const leadMagnets: LeadMagnet[] = [
     categoryColor: 'bg-green-500',
     path: '/lead-magnets/02_specific_methods/ai_video_creation_guide.md',
     tags: ['動画制作', 'YouTube', 'Sora']
+  },
+  {
+    id: 'ai-video-creation-2025',
+    title: 'AI動画制作で月3万円達成ガイド2025年版',
+    description: '最新ツール網羅！Runway Gen-3・Pika・Luma活用。マルチプラットフォーム対応で収益最大化。',
+    wordCount: 19000,
+    category: '具体的手法編',
+    categoryIcon: <FileText className="h-4 w-4" />,
+    categoryColor: 'bg-green-500',
+    path: '/lead-magnets/02_specific_methods/ai_video_creation_guide_2025.md',
+    tags: ['動画制作2025', 'Runway', 'YouTube Shorts', 'TikTok']
   },
   {
     id: 'kindle-publishing',
@@ -138,15 +150,26 @@ const leadMagnets: LeadMagnet[] = [
     categoryColor: 'bg-red-500',
     path: '/lead-magnets/05_scaling_and_advanced/legal_tax_guide.md',
     tags: ['税務', '法務', 'コンプライアンス']
+  },
+  {
+    id: 'nft-sidebusiness-2025',
+    title: 'NFT副業で月3万円達成 2025年完全ガイド',
+    description: 'AI画像生成×NFT販売の実践手順。Midjourney・OpenSea活用で初心者でも30日で収益化。',
+    wordCount: 19200,
+    category: 'スケール・上級編',
+    categoryIcon: <TrendingUp className="h-4 w-4" />,
+    categoryColor: 'bg-red-500',
+    path: '/lead-magnets/05_scaling_and_advanced/nft_sidebusiness_2025_complete_guide.md',
+    tags: ['NFT', 'AI画像生成', 'OpenSea', 'デジタルアート']
   }
 ]
 
 const categories = [
   { name: '入門・基礎編', icon: <Rocket className="h-5 w-5" />, color: 'bg-blue-500', count: 1 },
-  { name: '具体的手法編', icon: <FileText className="h-5 w-5" />, color: 'bg-green-500', count: 4 },
+  { name: '具体的手法編', icon: <FileText className="h-5 w-5" />, color: 'bg-green-500', count: 5 },
   { name: 'ツール・テンプレート編', icon: <Settings className="h-5 w-5" />, color: 'bg-purple-500', count: 1 },
   { name: 'マインドセット・サポート編', icon: <Brain className="h-5 w-5" />, color: 'bg-orange-500', count: 2 },
-  { name: 'スケール・上級編', icon: <TrendingUp className="h-5 w-5" />, color: 'bg-red-500', count: 2 }
+  { name: 'スケール・上級編', icon: <TrendingUp className="h-5 w-5" />, color: 'bg-red-500', count: 3 }
 ]
 
 export default function LeadMagnetsPage() {
@@ -258,12 +281,9 @@ export default function LeadMagnetsPage() {
                     </Button>
                     <div className="absolute top-full right-0 mt-1 bg-white border border-gray-200 rounded-lg shadow-lg opacity-0 invisible group-hover:opacity-100 group-hover:visible transition-all duration-200 z-10 min-w-[200px]">
                       <div className="p-2 space-y-1">
-                        <Link href="https://discord.gg/ai-salon" target="_blank">
-                          <Button variant="ghost" size="sm" className="w-full justify-start">
-                            <MessageCircle className="h-4 w-4 mr-2 text-purple-600" />
-                            Discordで受け取り
-                          </Button>
-                        </Link>
+                        <div className="w-full">
+                          <DiscordDownloadButton className="w-full text-sm px-2 py-1" />
+                        </div>
                         <Link href="https://line.me/R/ti/p/@ai-salon" target="_blank">
                           <Button variant="ghost" size="sm" className="w-full justify-start">
                             <MessageCircle className="h-4 w-4 mr-2 text-green-600" />
